@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Riwayat Deteksi - SADAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+        <div class="p-6">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 mb-10">
+            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a
+              href="dashboard.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+
+            <!-- Deteksi Depresi -->
+            <a
+              href="deteksi-depresi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Deteksi Depresi</span>
+            </a>
+
+            <!-- Riwayat Deteksi - Active -->
+            <a
+              href="riwayat-deteksi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              <span>Riwayat Deteksi</span>
+            </a>
+
+            <!-- Pengaturan -->
+            <a
+              href="pengaturan.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span>Pengaturan</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 ml-64">
+        <!-- Top Bar -->
+        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div class="px-8 py-4 flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
+
+            <div class="flex items-center space-x-4">
+              <!-- Search Bar -->
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <svg
+                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+
+              <!-- User Profile -->
+              <div class="flex items-center space-x-3">
+                <span class="text-sm font-medium text-gray-700"
+                  >Ferdy Permana</span
+                >
+                <img
+                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  alt="User Avatar"
+                  class="w-10 h-10 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-8">
+          <div class="max-w-4xl mx-auto mb-6">
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm text-gray-500">Hasil Deteksi</p>
+                  <h2 id="detail-hasil" class="text-2xl font-extrabold text-gray-800">-</h2>
+                  <p class="text-sm text-gray-500 mt-1">Confidence: <span id="detail-confidence">-</span></p>
+                </div>
+                <a href="riwayat-deteksi.html" class="px-5 py-2 bg-blue-50 text-blue-700 rounded-lg font-semibold hover:bg-blue-100 transition">Kembali</a>
+              </div>
+              <div class="mt-6">
+                <h3 class="font-bold text-gray-800 mb-2">Ringkasan Jawaban</h3>
+                <pre id="detail-input" class="text-sm bg-gray-50 border border-gray-200 rounded-xl p-4 overflow-auto"></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="max-w-5xl mx-auto">
+            <!-- Back Button -->
+            <div class="mb-6">
+              <button
+                onclick="window.location.href='riwayat-deteksi.html'"
+                class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition"
+              >
+                <svg
+                  class="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                <span class="font-medium">Kembali</span>
+              </button>
+            </div>
+
+            <div
+              class="bg-white rounded-2xl shadow-sm p-8 border border-gray-200"
+            >
+              <!-- Detail Riwayat Deteksi Section -->
+              <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                Detail Riwayat Deteksi
+              </h2>
+
+              <!-- Questions List -->
+              <div class="mb-8 space-y-4">
+                <div class="pb-4 border-b border-gray-100">
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-semibold">1.</span> Saya pernah merasa
+                    sedih terus menerus dan sempat berputus asa
+                  </p>
+                  <p class="text-gray-600 ml-5">Pernah</p>
+                </div>
+
+                <div class="pb-4 border-b border-gray-100">
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-semibold">2.</span> Saya pernah merasa
+                    sedih terus menerus dan sempat berputus asa
+                  </p>
+                  <p class="text-gray-600 ml-5">Pernah</p>
+                </div>
+
+                <div class="pb-4 border-b border-gray-100">
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-semibold">3.</span> Saya pernah merasa
+                    sedih terus menerus dan sempat berputus asa
+                  </p>
+                  <p class="text-gray-600 ml-5">Pernah</p>
+                </div>
+              </div>
+
+              <!-- Hasil Deteksi Kamu Section -->
+              <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                Hasil Deteksi Kamu
+              </h2>
+
+              <div class="mb-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-2">
+                  Tingkat Risiko Depresi:
+                  <span class="text-yellow-600">Sedang</span>
+                </h3>
+                <p class="text-gray-600">Skor Analisis: 20%</p>
+              </div>
+
+              <!-- Saran dan Rekomendasi Section -->
+              <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">
+                  Saran dan Rekomendasi
+                </h3>
+
+                <ol class="space-y-4 text-gray-700">
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">1.</span> Kenali perasaanmu.
+                    Luangkan waktu setiap hari untuk menyadari emosi yang kamu
+                    rasakan tanpa menghakimi diri sendiri.
+                  </li>
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">2.</span> Ceritakan pada orang
+                    terpercaya. Berbagi cerita dengan teman dekat, keluarga,
+                    atau guru BK dapat membantu mengurangi beban pikiran.
+                  </li>
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">3.</span> Jaga pola tidur dan
+                    makan. Cobalah tidur cukup 7–8 jam dan konsumsi makanan
+                    bergizi agar energi serta mood tetap stabil.
+                  </li>
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">4.</span> Lakukan aktivitas yang
+                    kamu sukai. Kegiatan seperti mendengarkan musik, berolahraga
+                    ringan, atau berjalan santai bisa membantu meningkatkan
+                    suasana hati.
+                  </li>
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">5.</span> Batasi penggunaan
+                    media sosial. Terlalu sering membandingkan diri dengan orang
+                    lain dapat memperburuk kondisi emosionalmu.
+                  </li>
+                  <li class="leading-relaxed">
+                    <span class="font-semibold">6.</span> Pertimbangkan
+                    konseling profesional. Jika perasaan sedih atau cemas
+                    berlangsung lama, berkonsultasilah dengan psikolog atau
+                    konselor sekolah untuk mendapatkan bantuan yang tepat.
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Back Button at Bottom -->
+              <div class="flex justify-center mt-8">
+                <button
+                  onclick="window.location.href='riwayat-deteksi.html'"
+                  class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
+                >
+                  Kembali
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  
+    <script src="sadar-api.js"></script>
+    <script>
+      requireAuth();
+      const u = getUsername();
+      const el = document.getElementById("userName");
+      if (el) el.textContent = u;
+    </script>
+
+    <script>
+      const d = JSON.parse(localStorage.getItem("riwayat_detail") || "null");
+      if (!d) window.location.href = "riwayat-deteksi.html";
+
+      document.getElementById("detail-hasil").textContent = d.predicted_class || "-";
+      document.getElementById("detail-confidence").textContent = ((d.confidence || 0) * 100).toFixed(1) + "%";
+
+      const pre = document.getElementById("detail-input");
+      if (pre) pre.textContent = JSON.stringify(d.input || {}, null, 2);
+    </script>
+
+  </body>
+</html>

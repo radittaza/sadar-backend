@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengaturan - SADAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+        <div class="p-6">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 mb-10">
+            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a
+              href="dashboard.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+
+            <!-- Deteksi Depresi -->
+            <a
+              href="deteksi-depresi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Deteksi Depresi</span>
+            </a>
+
+            <!-- Riwayat Deteksi -->
+            <a
+              href="riwayat-deteksi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              <span>Riwayat Deteksi</span>
+            </a>
+
+            <!-- Pengaturan - Active -->
+            <a
+              href="pengaturan.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span>Pengaturan</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 ml-64">
+        <!-- Top Bar -->
+        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div class="px-8 py-4 flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-gray-800">Setting</h1>
+
+            <div class="flex items-center space-x-4">
+              <!-- Search Bar -->
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <svg
+                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+
+              <!-- User Profile -->
+              <div class="flex items-center space-x-3">
+                <span class="text-sm font-medium text-gray-700"
+                  >Ferdy Permana</span
+                >
+                <img
+                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  alt="User Avatar"
+                  class="w-10 h-10 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-8">
+          <div class="max-w-5xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200">
+              <!-- Tabs -->
+              <div class="border-b border-gray-200">
+                <div class="flex px-8 pt-6">
+                  <button
+                    id="editProfilTab"
+                    onclick="switchTab('editProfil')"
+                    class="px-6 pb-4 font-semibold text-blue-600 border-b-2 border-blue-600"
+                  >
+                    Edit Profil
+                  </button>
+                  <button
+                    id="gantiPasswordTab"
+                    onclick="switchTab('gantiPassword')"
+                    class="px-6 pb-4 font-semibold text-gray-500 hover:text-gray-700"
+                  >
+                    Ganti Password
+                  </button>
+                </div>
+              </div>
+
+              <!-- Edit Profil Content -->
+              <div id="editProfilContent" class="p-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  <!-- Avatar Section -->
+                  <div class="flex flex-col items-center">
+                    <div class="relative">
+                      <img
+                        src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff&size=150"
+                        alt="Profile Avatar"
+                        class="w-32 h-32 rounded-full"
+                      />
+                      <button
+                        class="absolute bottom-0 right-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition"
+                      >
+                        <svg
+                          class="w-5 h-5 text-white"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Form Section -->
+                  <div class="lg:col-span-2 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <!-- Nama -->
+                      <div>
+                        <label class="block text-gray-700 font-medium mb-2"
+                          >Nama</label
+                        >
+                        <input
+                          type="text"
+                          value="Ferdy Permana"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <!-- Username -->
+                      <div>
+                        <label class="block text-gray-700 font-medium mb-2"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          value="Ferdy Permana"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <!-- Email -->
+                      <div>
+                        <label class="block text-gray-700 font-medium mb-2"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          value="Ferdy Permana87021@gmail.com"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+
+                      <!-- Password -->
+                      <div>
+                        <label class="block text-gray-700 font-medium mb-2"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          value="**********"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-2"
+                        >Alamat</label
+                      >
+                      <textarea
+                        rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+Jl.martadireja 1 no 808, arcawinangun , Banyumas</textarea
+                      >
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="flex justify-end">
+                      <button
+                        class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ganti Password Content -->
+              <div id="gantiPasswordContent" class="p-8 hidden">
+                <div class="max-w-2xl mx-auto space-y-6">
+                  <!-- Password Saat Ini -->
+                  <div>
+                    <label class="block text-gray-700 font-medium mb-2"
+                      >Password Saat Ini</label
+                    >
+                    <input
+                      type="password"
+                      placeholder="**********"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <!-- Password Baru -->
+                  <div>
+                    <label class="block text-gray-700 font-medium mb-2"
+                      >Password Baru</label
+                    >
+                    <input
+                      type="password"
+                      placeholder="**********"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <!-- Konfirmasi Password Baru -->
+                  <div>
+                    <label class="block text-gray-700 font-medium mb-2"
+                      >Konfirmasi Password Baru</label
+                    >
+                    <input
+                      type="password"
+                      placeholder="**********"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <!-- Save Button -->
+                  <div class="flex justify-end pt-4">
+                    <button
+                      class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      function switchTab(tabName) {
+        document.getElementById("editProfilContent").classList.add("hidden");
+        document.getElementById("gantiPasswordContent").classList.add("hidden");
+
+        document
+          .getElementById("editProfilTab")
+          .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+        document
+          .getElementById("gantiPasswordTab")
+          .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+        document.getElementById("editProfilTab").classList.add("text-gray-500");
+        document
+          .getElementById("gantiPasswordTab")
+          .classList.add("text-gray-500");
+
+        if (tabName === "editProfil") {
+          document
+            .getElementById("editProfilContent")
+            .classList.remove("hidden");
+          document
+            .getElementById("editProfilTab")
+            .classList.add("text-blue-600", "border-b-2", "border-blue-600");
+          document
+            .getElementById("editProfilTab")
+            .classList.remove("text-gray-500");
+        } else {
+          document
+            .getElementById("gantiPasswordContent")
+            .classList.remove("hidden");
+          document
+            .getElementById("gantiPasswordTab")
+            .classList.add("text-blue-600", "border-b-2", "border-blue-600");
+          document
+            .getElementById("gantiPasswordTab")
+            .classList.remove("text-gray-500");
+        }
+      }
+    </script>
+  
+    <script src="sadar-api.js"></script>
+    <script>
+      requireAuth();
+      const u = getUsername();
+      const el = document.getElementById("userName");
+      if (el) el.textContent = u;
+    </script>
+
+    <script>
+      // tombol logout sederhana (tidak mengubah layout terlalu banyak)
+      // jika kamu sudah punya tombol logout, beri id="btnLogout" maka script ini otomatis nyambung
+      const btn = document.getElementById("btnLogout");
+      if (btn) btn.addEventListener("click", logout);
+    </script>
+
+  </body>
+</html>

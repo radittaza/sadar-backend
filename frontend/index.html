@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SADAR - Website Deteksi Depresi Dini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition"
+              >Beranda</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition"
+              >Tentang</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition"
+              >Fitur</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition"
+              >Langkah</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition"
+              >Edukasi</a
+            >
+          </div>
+
+          <button
+            onclick="openLoginModal()"
+            class="px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <h1
+        class="text-5xl md:text-6xl font-bold text-gray-800 leading-tight text-center mb-12"
+      >
+        Website Deteksi Depresi Dini
+      </h1>
+
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <div class="space-y-6">
+          <div class="space-y-3">
+            <p class="text-gray-600 leading-relaxed">
+              Kenali kondisi mentalmu sejak dini.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Luangkan beberapa menit untuk memahami dirimu lebih baik melalui
+              kuesioner sederhana ini.
+            </p>
+          </div>
+
+          <button
+            class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition shadow-lg"
+          >
+            Mulai Sekarang
+          </button>
+
+          <div class="pt-6 space-y-3">
+            <div class="flex items-center space-x-3 text-gray-700">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                />
+              </svg>
+              <span class="text-sm">sadardni_</span>
+            </div>
+            <div class="flex items-center space-x-3 text-gray-700">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                />
+              </svg>
+              <span class="text-sm">sadardni_</span>
+            </div>
+            <div class="flex items-center space-x-3 text-gray-700">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"
+                />
+              </svg>
+              <span class="text-sm">Sadar Website TT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+          <img
+            src="img/hero.png"
+            alt="Hero Illustration"
+            class="w-full max-w-md"
+          />
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+          <h3 class="font-bold text-gray-800 text-lg mb-4">
+            APA YANG MEREKA KATAKAN
+          </h3>
+
+          <div class="flex space-x-3 mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-400 rounded-full"
+            ></div>
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full"
+            ></div>
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full"
+            ></div>
+          </div>
+
+          <p class="text-gray-700 text-sm leading-relaxed mb-3">
+            "Kesehatan mental adalah langkah pertama menuju kebahagiaan. SADAR
+            membantu saya untuk berhenti sejenak dan peduli pada diri sendiri."
+          </p>
+
+          <p class="text-gray-500 text-xs italic">-Ferdy Permana</p>
+
+          <div class="mt-4 flex items-center space-x-2">
+            <span class="text-sm text-gray-600">Tonton video</span>
+            <div
+              class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center cursor-pointer hover:bg-blue-600 transition"
+            >
+              <svg
+                class="w-4 h-4 text-white ml-0.5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <span class="text-sm text-gray-600">tutorial disini</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative flex items-center justify-center">
+          <img
+            src="img/tentang.png"
+            alt="Tentang SADAR Illustration"
+            class="w-full max-w-lg"
+          />
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-gray-600 font-semibold">Tentang</h3>
+
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight"
+          >
+            SADAR (Sistem Analisis Depresi dan Rekomendasi)
+          </h2>
+
+          <p class="text-gray-600 leading-relaxed text-justify">
+            SADAR adalah sebuah website inovatif yang dirancang untuk memahami
+            kondisi mentalnya melalui analisis jawaban kuesioner dengan
+            memanfaatkan teknologi Machine Learning.
+          </p>
+
+          <p class="text-gray-600 leading-relaxed text-justify">
+            Sistem ini memproses setiap jawaban untuk memprediksi tingkat
+            depresi secara akurat. Hasilnya ditampilkan dalam bentuk kategori
+            seperti normal, sedang, dan tinggi dengan disertai saran edukasi dan
+            langkah awal yang dapat membantu dirinya mengatasi kondisi
+            mentalnya.
+          </p>
+
+          <button
+            class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
+          >
+            Mau coba?
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-b from-blue-50 to-blue-100 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-800 inline-block px-8 py-4 bg-blue-200 rounded-full"
+          >
+            Fitur Utama Sistem
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+          <div class="grid grid-cols-5 gap-4 mb-12">
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 mb-3"
+              >
+                1
+              </div>
+              <div class="w-full h-1 bg-blue-300"></div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 mb-3"
+              >
+                2
+              </div>
+              <div class="w-full h-1 bg-blue-300"></div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 mb-3"
+              >
+                3
+              </div>
+              <div class="w-full h-1 bg-blue-300"></div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 mb-3"
+              >
+                4
+              </div>
+              <div class="w-full h-1 bg-blue-300"></div>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center text-2xl font-bold text-gray-800 mb-3"
+              >
+                5
+              </div>
+              <div class="w-full h-1 bg-blue-300"></div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <div class="text-center space-y-3">
+              <h3 class="font-bold text-gray-800 text-lg">Kuesioner Siswa</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Form interaktif yang berisi pertanyaan yang berisi kondisi
+                emosional dan kebiasaan sehari-hari siswa.
+              </p>
+            </div>
+
+            <div class="text-center space-y-3">
+              <h3 class="font-bold text-gray-800 text-lg">
+                Analisis Machine Learning
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Sistem memproses jawaban menggunakan algoritma Machine Learning
+                untuk memilih tingkat depresi.
+              </p>
+            </div>
+
+            <div class="text-center space-y-3">
+              <h3 class="font-bold text-gray-800 text-lg">
+                Hasil Prediksi Depresi
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Menampilkan hasil dalam bentuk kategori tingkat depresi siswa
+                seperti rendah, sedang, dan tinggi.
+              </p>
+            </div>
+
+            <div class="text-center space-y-3">
+              <h3 class="font-bold text-gray-800 text-lg">
+                Rekomendasi & Edukasi
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Memberikan saran dan informasi edisi sesuai hasil prediksi
+                sebagai langkah awal penanganan.
+              </p>
+            </div>
+
+            <div class="text-center space-y-3">
+              <h3 class="font-bold text-gray-800 text-lg">
+                Login & Riwayat Hasil
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Pengguna dapat masuk ke akun dan melihat kembali hasil analisis
+                sebelumnya dengan aman.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20">
+      <div class="text-center mb-16">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-gray-800 inline-block px-8 py-4 bg-blue-200 rounded-full"
+        >
+          Langkah Penggunaan Sistem
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="space-y-8">
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                1.
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 text-lg mb-2">
+                Login atau Daftar Akun
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Buat akun dan Masuk ke sistem dengan akun pribadi kamu untuk
+                menyimpan dan mengakses riwayat hasil.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                2.
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 text-lg mb-2">
+                Isi Kuesioner
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Jawab pertanyaan seputar kondisi emosional dan kebiasaan harian
+                kamu dengan jujur.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                3.
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 text-lg mb-2">
+                Proses Analisis
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Sistem akan menganalisis jawaban menggunakan algoritma Machine
+                Learning secara otomatis.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                4.
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 text-lg mb-2">Lihat Hasil</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Tingkat depresi akan ditampilkan dalam bentuk kategori seperti
+                rendah, sedang, atau tinggi.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              >
+                5.
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 text-lg mb-2">
+                Dapatkan Saran & Edukasi
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Pelajari saran rekomendasi dan informasi yang sesuai dengan
+                kondisi kamu, lalu terapkan pada dirimu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative flex items-center justify-center">
+          <img
+            src="img/langkah.png"
+            alt="Langkah Penggunaan Illustration"
+            class="w-full max-w-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-b from-white to-blue-50 py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-800 inline-block px-8 py-4 bg-blue-200 rounded-full"
+          >
+            Edukasi Seputar Depresi
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div
+            class="bg-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-xl transition"
+          >
+            <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">
+              Apa Itu Depresi?
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-justify">
+              Depresi adalah gangguan suasana hati yang menyebabkan seseorang
+              merasa sedih berkepanjangan, kehilangan minat, dan sulit berfungsi
+              seperti biasanya.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-xl transition"
+          >
+            <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">
+              Tanda-Tanda Depresi
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-justify">
+              Tanda depresi antara lain: sulit tidur atau tidur berlebihan,
+              kehilangan semangat belajar, merasa hampa atau putus asa, menarik
+              diri, dan merasa tidak berharga.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-300 rounded-3xl p-6 shadow-lg hover:shadow-xl transition"
+          >
+            <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">
+              Penyebab Depresi Siswa
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-justify">
+              Faktor depresi bisa berasal dari tekanan akademik, masalah
+              keluarga, perundungan (bullying), atau perubahan lingkungan
+              sosial.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-xl transition"
+          >
+            <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">
+              Cara Mencegah
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              Mengatur pola tidur, mengatur waktu belajar, berhubungan dengan
+              orang terdekat secara terbuka, dan melakukan aktivitas yang
+              disukai dapat membantu mengelola kesehatan mental.
+            </p>
+          </div>
+
+          <div
+            class="bg-blue-200 rounded-3xl p-6 shadow-lg hover:shadow-xl transition"
+          >
+            <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">
+              Kapan Harus Cari Bantuan?
+            </h3>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              Jika merasa sudah berkepanjangan atau sudah kehilangan motivasi,
+              segera mencari bantuan profesional seperti guru BK, orang tua,
+              atau bicara pada orang yang dipercaya. Langkah kecil ini adalah
+              awal dari pemulihan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="loginModal"
+      class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50"
+    >
+      <div
+        class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full mx-4 overflow-hidden grid md:grid-cols-2"
+      >
+        <div class="p-8 md:p-12 relative">
+          <button
+            onclick="closeLoginModal()"
+            class="absolute top-6 left-6 text-gray-400 hover:text-gray-600"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div class="text-center mt-8 mb-8">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <img src="img/log.png" alt="SADAR Logo" class="h-6" />
+            </div>
+            <h2 class="text-4xl font-bold text-gray-800">Login</h2>
+          </div>
+
+          <form id="loginForm" class="space-y-6">
+            <div>
+              <label class="block text-sm text-gray-500 mb-2">Username</label>
+              <input
+                type="text"
+                id="loginUsername"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-500 mb-2">Password</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="loginPassword"
+                  class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('loginPassword')"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition shadow-lg"
+            >
+              Login
+            </button>
+
+            <p class="text-center text-sm text-gray-600">
+              Belum punya akun?
+              <button
+                type="button"
+                onclick="switchToRegister()"
+                class="text-blue-500 hover:text-blue-600 font-medium"
+              >
+                Daftar disini
+              </button>
+            </p>
+          </form>
+        </div>
+
+        <div class="bg-white p-8 md:p-12 flex items-center justify-center">
+          <div class="max-w-sm">
+            <img src="img/hero.png" alt="Login Illustration" class="w-full" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      <div
+      id="registerModal"
+      class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50"
+    >
+      <div
+        class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full mx-4 overflow-hidden grid md:grid-cols-2"
+      >
+        <div class="p-8 md:p-12 relative">
+          <button
+            onclick="closeRegisterModal()"
+            class="absolute top-6 left-6 text-gray-400 hover:text-gray-600"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div class="text-center mt-8 mb-6">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <img src="img/log.png" alt="SADAR Logo" class="h-6" />
+            </div>
+            <h2 class="text-4xl font-bold text-gray-800">Register</h2>
+          </div>
+
+          <form class="space-y-4">
+            <div>
+              <label class="block text-sm text-gray-500 mb-2">Email</label>
+              <input
+                type="email"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-500 mb-2">Username</label>
+              <input
+                type="text"
+                id="loginUsername"
+                class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-500 mb-2">Password</label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="registerPassword"
+                  class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('registerPassword')"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-500 mb-2"
+                >Konfirmasi Password</label
+              >
+              <div class="relative">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('confirmPassword')"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition shadow-lg"
+            >
+              Daftar
+            </button>
+
+            <p class="text-center text-sm text-gray-600">
+              Sudah punya akun?
+              <button
+                type="button"
+                onclick="switchToLogin()"
+                class="text-blue-500 hover:text-blue-600 font-medium"
+              >
+                Login disini
+              </button>
+            </p>
+          </form>
+        </div>
+
+        <div class="bg-white p-8 md:p-12 flex items-center justify-center">
+          <div class="max-w-sm">
+            <img
+              src="img/hero.png"
+              alt="Register Illustration"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openLoginModal() {
+        document.getElementById("loginModal").classList.remove("hidden");
+        document.getElementById("loginModal").classList.add("flex");
+      }
+
+      function closeLoginModal() {
+        document.getElementById("loginModal").classList.add("hidden");
+        document.getElementById("loginModal").classList.remove("flex");
+      }
+
+      function openRegisterModal() {
+        document.getElementById("registerModal").classList.remove("hidden");
+        document.getElementById("registerModal").classList.add("flex");
+      }
+
+      function closeRegisterModal() {
+        document.getElementById("registerModal").classList.add("hidden");
+        document.getElementById("registerModal").classList.remove("flex");
+      }
+
+      function switchToRegister() {
+        closeLoginModal();
+        openRegisterModal();
+      }
+
+      function switchToLogin() {
+        closeRegisterModal();
+        openLoginModal();
+      }
+
+      function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+          input.type = "text";
+        } else {
+          input.type = "password";
+        }
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("loginModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeLoginModal();
+          }
+        });
+
+      document
+        .getElementById("registerModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeRegisterModal();
+          }
+        });
+    </script>
+  
+    <script src="sadar-api.js"></script>
+    <script>
+      // set username di header (jika ada)
+      function setUserName() {
+        const el = document.getElementById("userName");
+        if (el) el.textContent = getUsername();
+      }
+
+      // LOGIN submit
+      const loginForm = document.getElementById("loginForm");
+      if (loginForm) {
+        loginForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const username = document.getElementById("loginUsername")?.value?.trim();
+          const password = document.getElementById("loginPassword")?.value;
+          try {
+            await loginUser(username, password);
+          } catch (err) {
+            alert(err.message || "Login gagal");
+          }
+        });
+      }
+
+      // (opsional) REGISTER jika ada form daftar
+      const regForm = document.getElementById("registerForm");
+      if (regForm) {
+        regForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const username = document.getElementById("registerUsername")?.value?.trim();
+          const password = document.getElementById("registerPassword")?.value;
+          try {
+            await registerUser(username, password);
+            alert("Berhasil daftar. Silakan login.");
+          } catch (err) {
+            alert(err.message || "Register gagal");
+          }
+        });
+      }
+    </script>
+
+  </body>
+</html>

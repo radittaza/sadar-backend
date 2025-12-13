@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - SADAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+        <div class="p-6">
+          <!-- Logo -->
+          <div class="flex items-center space-x-2 mb-10">
+            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="space-y-2">
+            <!-- Dashboard - Active -->
+            <a
+              href="dashboard.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+
+            <!-- Deteksi Depresi -->
+            <a
+              href="deteksi-depresi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Deteksi Depresi</span>
+            </a>
+
+            <!-- Riwayat Deteksi -->
+            <a
+              href="riwayat-deteksi.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              <span>Riwayat Deteksi</span>
+            </a>
+
+            <!-- Pengaturan -->
+            <a
+              href="pengaturan.html"
+              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
+            >
+              <svg
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span>Pengaturan</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 ml-64">
+        <!-- Top Bar -->
+        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+          <div class="px-8 py-4 flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+
+            <div class="flex items-center space-x-4">
+              <!-- Search Bar -->
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <svg
+                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+
+              <!-- User Profile -->
+              <div class="flex items-center space-x-3">
+                <span class="text-sm font-medium text-gray-700"
+                  >Ferdy Permana</span
+                >
+                <img
+                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  alt="User Avatar"
+                  class="w-10 h-10 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="p-8">
+          <!-- Greeting -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">
+              Halo Ferdy Permana,
+            </h2>
+            <p class="text-gray-600">Selamat datang di dashboard SADAR</p>
+          </div>
+
+          <!-- Grid Layout -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left Column -->
+            <div class="space-y-8">
+              <!-- Hasil Terakhir Deteksi Kamu -->
+              <div
+                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
+              >
+                <h3 class="text-xl font-bold text-gray-800 mb-6">
+                  Hasil Terakhir Deteksi Kamu
+                </h3>
+
+                <div class="mb-6">
+                  <p class="text-gray-600 text-sm mb-2">Tingkat Resiko:</p>
+                  <p class="text-4xl font-bold text-purple-500">Rendah</p>
+                </div>
+
+                <button
+                  onclick="window.location.href='deteksi-depresi.html'"
+                  class="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-md"
+                >
+                  Deteksi Sekarang
+                </button>
+              </div>
+
+              <!-- Edukasi Kesehatan Mental -->
+              <div
+                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
+              >
+                <h3 class="text-xl font-bold text-gray-800 mb-6">
+                  Edukasi Kesehatan Mental
+                </h3>
+
+                <!-- Article 1 -->
+                <div
+                  class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100"
+                >
+                  <div
+                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="text-blue-600 text-xl font-bold">G</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 mb-2">
+                      Artikel Mengenai Depresi
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      Belajar tentang mengetahui apa itu depresi dan cara
+                      mengenalinya dengan lebih baik.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="text-blue-600 text-xl font-bold">G</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800 mb-2">
+                      Artikel Mengenai Gejala Depresi
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      Belajar tentang gejala depresi dan cara penanganannya
+                      dengan lebih baik.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column - Chart -->
+            <div
+              class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
+            >
+              <h3 class="text-xl font-bold text-gray-800 mb-6">
+                Grafik Riwayat Depresi Kamu
+              </h3>
+
+              <!-- Chart Canvas -->
+              <div class="relative h-80">
+                <canvas id="depresiChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Chart.js Configuration
+      const ctx = document.getElementById("depresiChart").getContext("2d");
+
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+      gradient.addColorStop(0, "rgba(99, 102, 241, 0.2)");
+      gradient.addColorStop(1, "rgba(99, 102, 241, 0.0)");
+
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+          datasets: [
+            {
+              label: "Tingkat Depresi",
+              data: [15, 25, 28, 35, 32, 38, 35],
+              borderColor: "rgb(99, 102, 241)",
+              backgroundColor: gradient,
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4,
+              pointBackgroundColor: "rgb(99, 102, 241)",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+              pointRadius: 5,
+              pointHoverRadius: 7,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              backgroundColor: "rgba(0, 0, 0, 0.8)",
+              padding: 12,
+              titleColor: "#fff",
+              bodyColor: "#fff",
+              borderColor: "rgb(99, 102, 241)",
+              borderWidth: 1,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 50,
+              ticks: {
+                callback: function (value) {
+                  if (value === 0) return "Rendah";
+                  if (value === 25) return "Sedang";
+                  if (value === 50) return "Tinggi";
+                  return "";
+                },
+                color: "#9CA3AF",
+                font: {
+                  size: 12,
+                },
+              },
+              grid: {
+                color: "rgba(0, 0, 0, 0.05)",
+                drawBorder: false,
+              },
+            },
+            x: {
+              ticks: {
+                color: "#9CA3AF",
+                font: {
+                  size: 12,
+                },
+              },
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+            },
+          },
+        },
+      });
+    </script>
+  
+    <script src="sadar-api.js"></script>
+    <script>
+      requireAuth();
+      const u = getUsername();
+      const el = document.getElementById("userName");
+      if (el) el.textContent = u;
+    </script>
+
+  </body>
+</html>
