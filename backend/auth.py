@@ -1,12 +1,14 @@
+import os
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
 
-SECRET_KEY = "GANTI_DENGAN_SECRET_PANJANG_BIAR_AMAN"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 hari
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
@@ -22,6 +24,4 @@ def create_access_token(data: dict) -> str:
 
 def decode_token(token: str):
     try:
-        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-    except JWTError:
-        return None
+        return jwt.decode
