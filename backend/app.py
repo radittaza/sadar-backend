@@ -19,16 +19,13 @@ from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://sadar-backend.vercel.app/",
-        "http://localhost:5500",
-        "http://127.0.0.1:5500",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
+        "https://sadar-backend.vercel.app",   
     ],
-    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=False, 
 )
+
 
 MODEL_PATH = Path(__file__).parent / "rf_model.joblib"
 LE_PATH    = Path(__file__).parent / "label_encoder.joblib"
