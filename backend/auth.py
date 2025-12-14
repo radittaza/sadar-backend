@@ -11,10 +11,15 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 hari
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def hash_password(password: str) -> str:
-    return pwd_context.hash(password)
+    # bcrypt limit = 72 BYTES (bukan karakter)
+    pwd_bytes = password.encode("utf-8")[:72]
+    safe_password = pwd_bytes.decode("utf-8", errors="ignore")
+    return pwd_context.hash(safe_password)
 
 def verify_password(password: str, password_hash: str) -> bool:
-    return pwd_context.verify(password, password_hash)
+    pwd_bytes = password.encode("utf-8")[:72]
+    safe_password = pwd_bytes.decode("utf-8", errors="ignore")
+    return pwd_context.verify(safe_password, password_hash)
 
 def create_access_token(data: dict) -> str:
     to_encode = data.copy()
