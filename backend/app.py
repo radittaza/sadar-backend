@@ -14,6 +14,22 @@ ModelsBase.metadata.create_all(bind=engine)
 
 app = FastAPI(title="SADAR API")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://sadar-backend.vercel.app",  # domain Vercel kamu (frontend)
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 MODEL_PATH = Path(__file__).parent / "rf_model.joblib"
 LE_PATH    = Path(__file__).parent / "label_encoder.joblib"
 
@@ -135,14 +151,3 @@ def history(
         "input": json.loads(r.input_json)
     } for r in rows]
 
-from fastapi.middleware.cors import CORSMiddleware
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "https://sadar-backend-production.up.railway.app"
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)

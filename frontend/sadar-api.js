@@ -1,4 +1,5 @@
-const API_BASE = "https://sadar-backend-production.up.railway.app"; 
+const API_BASE = "https://sadar-backend-production.up.railway.app";
+
 
 function setToken(token) { localStorage.setItem("sadar_token", token); }
 function getToken() { return localStorage.getItem("sadar_token"); }
