@@ -622,7 +622,6 @@
     </div>
 
     <div
-      <div
       id="registerModal"
       class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50"
     >
@@ -656,7 +655,7 @@
             <h2 class="text-4xl font-bold text-gray-800">Register</h2>
           </div>
 
-          <form class="space-y-4">
+          <form id="registerForm" class="space-y-4">
             <div>
               <label class="block text-sm text-gray-500 mb-2">Email</label>
               <input
@@ -665,14 +664,11 @@
               />
             </div>
 
-            <div>
-              <label class="block text-sm text-gray-500 mb-2">Username</label>
-              <input
-                type="text"
-                id="loginUsername"
-                class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+            <input
+              type="text"
+              id="registerUsername"
+              class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
             <div>
               <label class="block text-sm text-gray-500 mb-2">Password</label>
@@ -837,7 +833,7 @@
           }
         });
     </script>
-  
+
     <script src="sadar-api.js"></script>
     <script>
       // set username di header (jika ada)
@@ -851,7 +847,9 @@
       if (loginForm) {
         loginForm.addEventListener("submit", async (e) => {
           e.preventDefault();
-          const username = document.getElementById("loginUsername")?.value?.trim();
+          const username = document
+            .getElementById("loginUsername")
+            ?.value?.trim();
           const password = document.getElementById("loginPassword")?.value;
           try {
             await loginUser(username, password);
@@ -866,7 +864,9 @@
       if (regForm) {
         regForm.addEventListener("submit", async (e) => {
           e.preventDefault();
-          const username = document.getElementById("registerUsername")?.value?.trim();
+          const username = document
+            .getElementById("registerUsername")
+            ?.value?.trim();
           const password = document.getElementById("registerPassword")?.value;
           try {
             await registerUser(username, password);
@@ -877,6 +877,5 @@
         });
       }
     </script>
-
   </body>
 </html>

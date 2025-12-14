@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://sadar-backend.vercel.app",  # domain Vercel kamu (frontend)
+        "https://sadar-backend.vercel.app/",
         "http://localhost:5500",
         "http://127.0.0.1:5500",
         "http://localhost:3000",
