@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 
+# ambil dari ENV (Railway) atau fallback untuk lokal
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
-
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 hari
 
@@ -24,4 +24,6 @@ def create_access_token(data: dict) -> str:
 
 def decode_token(token: str):
     try:
-        return jwt.decode
+        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except JWTError:
+        return None
