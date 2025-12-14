@@ -1,6 +1,5 @@
 const API_BASE = "https://sadar-backend-production.up.railway.app";
 
-
 function setToken(token) { localStorage.setItem("sadar_token", token); }
 function getToken() { return localStorage.getItem("sadar_token"); }
 
@@ -39,8 +38,8 @@ async function loginUser(username, password) {
 async function registerUser(username, password) {
   const res = await fetch(`${API_BASE}/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password }),
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ username, password })
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.detail || "Register gagal");
