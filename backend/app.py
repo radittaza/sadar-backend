@@ -73,8 +73,17 @@ class PredictReq(BaseModel):
     q1: int; q2: int; q3: int; q4: int; q5: int; q6: int; q7: int; q8: int; q9: int
 
 # ---------- Routes ----------
+from fastapi import HTTPException
+
 @app.post("/register")
 def register(req: RegisterReq, db: Session = Depends(get_db)):
+    # ✅ cegah bcrypt error (maks 72 bytes)
+    if len(req.password.encode("utf-8")) > 72:
+        raise HTTPException(
+            status_code=400,
+            detail="Password terlalu panjang. Maksimal 72 karakter (lebih aman: <= 50)."
+        )
+
     existing = db.query(User).filter(User.username == req.username).first()
     if existing:
         raise HTTPException(status_code=400, detail="Username already used")
@@ -86,6 +95,8 @@ def register(req: RegisterReq, db: Session = Depends(get_db)):
 
 @app.post("/login")
 def login(req: LoginReq, db: Session = Depends(get_db)):
+    if len(req.password.encode("utf-8")) > 72:
+        raise HTTPException(status_code=400, detail="Password terlalu panjang.")
     user = db.query(User).filter(User.username == req.username).first()
     if not user or not verify_password(req.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Wrong username/password")
