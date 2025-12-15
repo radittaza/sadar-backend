@@ -150,12 +150,11 @@
               </div>
 
               <!-- User Profile -->
-              <div class="flex items-center space-x-3">
-                <span class="text-sm font-medium text-gray-700"
-                  >Ferdy Permana</span
-                >
+              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
+
                 <img
-                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  id="userAvatar"
+                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
                   alt="User Avatar"
                   class="w-10 h-10 rounded-full"
                 />
@@ -169,7 +168,7 @@
           <!-- Greeting -->
           <div class="mb-8">
             <h2 class="text-2xl font-bold text-gray-800 mb-2">
-              Halo Ferdy Permana,
+              Halo <span id="greetingName">-</span>,
             </h2>
             <p class="text-gray-600">Selamat datang di dashboard SADAR</p>
           </div>
@@ -188,7 +187,8 @@
 
                 <div class="mb-6">
                   <p class="text-gray-600 text-sm mb-2">Tingkat Resiko:</p>
-                  <p class="text-4xl font-bold text-purple-500">Rendah</p>
+                  <p id="lastRisk" class="text-4xl font-bold text-purple-500">-</p>
+                  <p id="lastRiskMeta" class="text-sm text-gray-500 mt-2"></p>
                 </div>
 
                 <button
@@ -349,12 +349,193 @@
     </script>
   
     <script src="sadar-api.js"></script>
-    <script>
-      requireAuth();
-      const u = getUsername();
-      const el = document.getElementById("userName");
-      if (el) el.textContent = u;
-    </script>
+<script>
+  function decodeJwtPayload(token) {
+    try {
+      const base64Url = token.split(".")[1];
+      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const jsonPayload = decodeURIComponent(
+        atob(base64)
+          .split("")
+          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+          .join("")
+      );
+      return JSON.parse(jsonPayload);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setUserUI(username) {
+    const name = username || "-";
+    const el1 = document.getElementById("userName");
+    const el2 = document.getElementById("greetingName");
+    const avatar = document.getElementById("userAvatar");
+    if (el1) el1.textContent = name;
+    if (el2) el2.textContent = name;
+    if (avatar) avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
+  }
+
+  // Ambil history (gunakan endpoint backend kamu)
+  async function fetchHistory() {
+    // sesuaikan endpoint kalau backend kamu berbeda
+    return await apiFetch("/history", { method: "GET" });
+  }
+
+  function normalizeHistory(history) {
+    // dukung beberapa kemungkinan bentuk data
+    if (!history) return [];
+    if (Array.isArray(history)) return history;
+    if (Array.isArray(history.items)) return history.items;
+    return [];
+  }
+
+  function pickLatest(history) {
+    if (!history.length) return null;
+
+    // coba urutkan berdasarkan created_at/createdAt/id
+    const copy = [...history];
+    copy.sort((a, b) => {
+      const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+      const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+      if (da && db) return db - da;
+      // fallback id
+      return (b.id || 0) - (a.id || 0);
+    });
+    return copy[0];
+  }
+
+  function renderLastDetection(latest) {
+    const riskEl = document.getElementById("lastRisk");
+    const metaEl = document.getElementById("lastRiskMeta");
+
+    if (!latest) {
+      if (riskEl) riskEl.textContent = "-";
+      if (metaEl) metaEl.textContent = "Belum ada riwayat deteksi.";
+      return;
+    }
+
+    // sesuaikan key jika backend kamu pakai nama field lain
+    const label = latest.label || latest.risk || latest.level || latest.kategori || "-";
+    const when = latest.created_at || latest.createdAt || latest.timestamp;
+
+    if (riskEl) riskEl.textContent = label;
+
+    if (metaEl) {
+      metaEl.textContent = when ? `Terakhir: ${new Date(when).toLocaleString("id-ID")}` : "";
+    }
+  }
+
+  function toChartPoints(history) {
+    // ubah history jadi labels & data (angka)
+    // kalau backend kamu punya score, pakai itu. kalau cuma label, mapping sederhana.
+    const mapLabelToScore = (x) => {
+      const v = String(x || "").toLowerCase();
+      if (v.includes("rendah") || v.includes("normal")) return 10;
+      if (v.includes("sedang")) return 30;
+      if (v.includes("tinggi") || v.includes("berat")) return 45;
+      return 0;
+    };
+
+    const sorted = [...history].sort((a, b) => {
+      const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+      const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+      return da - db;
+    });
+
+    const labels = sorted.map((h, i) => {
+      const when = h.created_at || h.createdAt || h.timestamp;
+      return when ? new Date(when).toLocaleDateString("id-ID") : `#${i + 1}`;
+    });
+
+    const data = sorted.map((h) => {
+      if (typeof h.score === "number") return h.score;
+      if (typeof h.probability === "number") return Math.round(h.probability * 50);
+      const label = h.label || h.risk || h.level || h.kategori;
+      return mapLabelToScore(label);
+    });
+
+    return { labels, data };
+  }
+
+  async function initDashboard() {
+    // 1) set username dari token
+    const token = getToken?.();
+    const payload = token ? decodeJwtPayload(token) : null;
+    const username = payload?.sub || payload?.username || payload?.user || null;
+    setUserUI(username);
+
+    // 2) ambil history dan update UI
+    try {
+      const raw = await fetchHistory();
+      const history = normalizeHistory(raw);
+      const latest = pickLatest(history);
+      renderLastDetection(latest);
+
+      // 3) update chart (kalau ada canvas)
+      const canvas = document.getElementById("depresiChart");
+      if (canvas && window.Chart) {
+        const ctx = canvas.getContext("2d");
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(99, 102, 241, 0.2)");
+        gradient.addColorStop(1, "rgba(99, 102, 241, 0.0)");
+
+        const { labels, data } = toChartPoints(history);
+
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: labels.length ? labels : ["-"],
+            datasets: [
+              {
+                label: "Tingkat Depresi",
+                data: data.length ? data : [0],
+                borderColor: "rgb(99, 102, 241)",
+                backgroundColor: gradient,
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: "rgb(99, 102, 241)",
+                pointBorderColor: "#fff",
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 50,
+                ticks: {
+                  callback: function (value) {
+                    if (value === 0) return "Rendah";
+                    if (value === 25) return "Sedang";
+                    if (value === 50) return "Tinggi";
+                    return "";
+                  },
+                  color: "#9CA3AF",
+                },
+                grid: { color: "rgba(0,0,0,0.05)", drawBorder: false },
+              },
+              x: { grid: { display: false, drawBorder: false } },
+            },
+          },
+        });
+      }
+    } catch (e) {
+      renderLastDetection(null);
+      console.error(e);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", initDashboard);
+</script>
+
 
   </body>
 </html>
