@@ -158,13 +158,13 @@
                 </svg>
               </div>
 
-              <!-- User Profile -->
               <div class="flex items-center space-x-3">
-                <span class="text-sm font-medium text-gray-700"
-                  >Ferdy Permana</span
+                <span id="userName" class="text-sm font-medium text-gray-700"
+                  >-</span
                 >
                 <img
-                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  id="userAvatar"
+                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
                   alt="User Avatar"
                   class="w-10 h-10 rounded-full"
                 />
@@ -203,19 +203,32 @@
         window.location.href = "deteksi-hasil.html";
       }, 3000);
     </script>
-  
+
+    <script src="sadar-api.js"></script>
     <script src="sadar-api.js"></script>
     <script>
       requireAuth();
-      const u = getUsername();
+
+      const u = getUsername() || "-";
       const el = document.getElementById("userName");
+      const av = document.getElementById("userAvatar");
+
       if (el) el.textContent = u;
+      if (av) {
+        av.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+          u
+        )}&background=ec4899&color=fff`;
+      }
     </script>
 
     <script>
       window.onload = async () => {
-        const demografi = JSON.parse(localStorage.getItem("sadar_demografi") || "null");
-        const answers = JSON.parse(localStorage.getItem("sadar_answers") || "[]");
+        const demografi = JSON.parse(
+          localStorage.getItem("sadar_demografi") || "null"
+        );
+        const answers = JSON.parse(
+          localStorage.getItem("sadar_answers") || "[]"
+        );
 
         if (!demografi || answers.length < 9) {
           window.location.href = "deteksi-depresi.html";
@@ -227,9 +240,15 @@
           umur: demografi.umur,
           tingkatan_kelas: demografi.tingkatan_kelas,
           nilai: demografi.nilai,
-          q1: answers[0], q2: answers[1], q3: answers[2],
-          q4: answers[3], q5: answers[4], q6: answers[5],
-          q7: answers[6], q8: answers[7], q9: answers[8],
+          q1: answers[0],
+          q2: answers[1],
+          q3: answers[2],
+          q4: answers[3],
+          q5: answers[4],
+          q6: answers[5],
+          q7: answers[6],
+          q8: answers[7],
+          q9: answers[8],
         };
 
         try {
@@ -240,6 +259,5 @@
         }
       };
     </script>
-
   </body>
 </html>
