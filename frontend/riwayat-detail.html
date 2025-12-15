@@ -7,9 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-      body {
-        font-family: "Inter", sans-serif;
-      }
+      body { font-family: "Inter", sans-serif; }
     </style>
   </head>
 
@@ -23,10 +21,7 @@
           </div>
 
           <nav class="space-y-2">
-            <a
-              href="dashboard.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
+            <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -34,10 +29,7 @@
               <span>Dashboard</span>
             </a>
 
-            <a
-              href="deteksi-depresi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
+            <a href="deteksi-depresi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -45,10 +37,7 @@
               <span>Deteksi Depresi</span>
             </a>
 
-            <a
-              href="riwayat-deteksi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
-            >
+            <a href="riwayat-deteksi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -56,10 +45,7 @@
               <span>Riwayat Deteksi</span>
             </a>
 
-            <a
-              href="pengaturan.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
+            <a href="pengaturan.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -74,47 +60,34 @@
 
       <!-- Main -->
       <main class="flex-1 ml-64">
-        <!-- Top Bar -->
         <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
           <div class="px-8 py-4 flex items-center justify-between">
             <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
 
             <div class="flex items-center space-x-4">
               <div class="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                <input type="text" placeholder="Search"
+                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
                 <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
 
-              <!-- User Profile (dinamis) -->
               <div class="flex items-center space-x-3">
                 <span id="userName" class="text-sm font-medium text-gray-700">-</span>
-                <img
-                  id="userAvatar"
-                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
-                  alt="User Avatar"
-                  class="w-10 h-10 rounded-full"
-                />
+                <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
+                  alt="User Avatar" class="w-10 h-10 rounded-full" />
               </div>
             </div>
           </div>
         </header>
 
-        <!-- Content -->
         <div class="p-8">
           <div class="max-w-5xl mx-auto">
-            <!-- Back -->
             <div class="mb-6">
-              <button
-                onclick="window.location.href='riwayat-deteksi.html'"
-                class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition"
-              >
+              <button onclick="window.location.href='riwayat-deteksi.html'"
+                class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M15 19l-7-7 7-7" />
@@ -133,7 +106,7 @@
                   <span id="riskLabel" class="font-extrabold">-</span>
                 </h3>
                 <p class="text-gray-600">
-                  Skor Analisis:
+                  Persentase Depresi:
                   <span id="riskScore" class="font-semibold">-</span>
                 </p>
               </div>
@@ -144,10 +117,8 @@
               </div>
 
               <div class="flex justify-center">
-                <button
-                  onclick="window.location.href='riwayat-deteksi.html'"
-                  class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
-                >
+                <button onclick="window.location.href='riwayat-deteksi.html'"
+                  class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg">
                   Kembali
                 </button>
               </div>
@@ -158,6 +129,7 @@
     </div>
 
     <script src="sadar-api.js"></script>
+
     <script>
       requireAuth();
 
@@ -172,6 +144,7 @@
     <script>
       function normalizeRiskLabel(x) {
         const v = String(x || "").toLowerCase();
+        if (v.includes("normal")) return "Normal";
         if (v.includes("rendah")) return "Rendah";
         if (v.includes("sedang")) return "Sedang";
         if (v.includes("tinggi") || v.includes("berat")) return "Tinggi";
@@ -179,14 +152,14 @@
       }
 
       function riskColorClass(label) {
-        if (label === "Rendah") return "text-green-600";
+        if (label === "Normal" || label === "Rendah") return "text-green-600";
         if (label === "Sedang") return "text-yellow-600";
         if (label === "Tinggi") return "text-red-600";
         return "text-gray-800";
       }
 
       function rekomendasiByRisk(label) {
-        if (label === "Rendah") {
+        if (label === "Normal" || label === "Rendah") {
           return [
             "Pertahankan rutinitas sehat (tidur cukup, makan teratur, minum air yang cukup).",
             "Lakukan aktivitas yang kamu suka secara konsisten (hobi, olahraga ringan, journaling).",
@@ -204,7 +177,6 @@
             "Pertimbangkan konsultasi profesional (konselor/psikolog) bila perasaan sedih/cemas berlangsung > 2 minggu."
           ];
         }
-        // Tinggi
         return [
           "Jangan dipendam sendiri—segera cari bantuan dari orang dewasa/teman/keluarga yang kamu percaya.",
           "Pertimbangkan untuk konsultasi profesional (psikolog/psikiater/konselor sekolah) secepatnya.",
@@ -214,21 +186,29 @@
         ];
       }
 
-      function safePercent(confidence) {
-        if (confidence === null || confidence === undefined) return "-";
-        const n = Number(confidence);
-        if (!isFinite(n)) return "-";
-        // kalau backend sudah persen (0-100)
-        if (n > 1) return `${n.toFixed(1)}%`;
-        // kalau 0-1
-        return `${(n * 100).toFixed(1)}%`;
+      function computePersentaseFromInput(input) {
+        // q1..q9 masing-masing 0..3 => total/27*100
+        if (!input) return null;
+        let total = 0;
+        for (let i = 1; i <= 9; i++) {
+          const v = Number(input[`q${i}`]);
+          if (!isFinite(v)) return null;
+          total += v;
+        }
+        return Math.round((total / 27) * 1000) / 10; // 1 decimal
       }
 
       const d = JSON.parse(localStorage.getItem("riwayat_detail") || "null");
       if (!d) window.location.href = "riwayat-deteksi.html";
 
       const label = normalizeRiskLabel(d.predicted_class || d.label || d.risk);
-      const confText = safePercent(d.confidence);
+
+      // ✅ Persentase Depresi: analysis_score kalau ada, fallback hitung dari input
+      let pers = (d.analysis_score !== undefined && d.analysis_score !== null) ? Number(d.analysis_score) : null;
+      if (!isFinite(pers)) pers = null;
+      if (pers === null) pers = computePersentaseFromInput(d.input);
+
+      const persText = (pers !== null) ? `${pers.toFixed(1)}%` : "-";
 
       const riskLabelEl = document.getElementById("riskLabel");
       const riskScoreEl = document.getElementById("riskScore");
@@ -236,9 +216,9 @@
 
       if (riskLabelEl) {
         riskLabelEl.textContent = label;
-        riskLabelEl.classList.add(...riskColorClass(label).split(" "));
+        riskLabelEl.className = `font-extrabold ${riskColorClass(label)}`;
       }
-      if (riskScoreEl) riskScoreEl.textContent = confText;
+      if (riskScoreEl) riskScoreEl.textContent = persText;
 
       const when = d.created_at || d.createdAt || d.timestamp;
       if (tglEl) {
@@ -247,7 +227,6 @@
           : "Tanggal deteksi: -";
       }
 
-      // rekomendasi
       const list = document.getElementById("rekomList");
       if (list) {
         const items = rekomendasiByRisk(label);
