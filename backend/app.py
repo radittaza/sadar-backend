@@ -178,11 +178,7 @@ def change_password(
     return {"message": "password updated"}
 
 @app.post("/predict")
-def predict(
-    req: PredictReq,
-    db: Session = Depends(get_db),
-    authorization: str | None = Header(default=None)
-):
+def predict(req: PredictReq, db: Session = Depends(get_db), authorization: str | None = Header(default=None)):
     user = get_current_user(db, authorization)
 
     X = [[
@@ -195,6 +191,11 @@ def predict(
     confidence = float(proba[idx])
     predicted = label_encoder.inverse_transform([idx])[0]
 
+    # ✅ skor analisis dari kuesioner (0..27)
+    total_q = int(req.q1 + req.q2 + req.q3 + req.q4 + req.q5 + req.q6 + req.q7 + req.q8 + req.q9)
+    max_q = 27
+    analysis_score = round((total_q / max_q) * 100, 1)  # persen
+
     h = History(
         user_id=user.id,
         input_json=json.dumps(req.model_dump(), ensure_ascii=False),
@@ -206,7 +207,10 @@ def predict(
 
     return {
         "predicted_class": predicted,
-        "confidence": confidence
+        "confidence": confidence,         
+        "analysis_score": analysis_score,  
+        "total_q": total_q,               
+        "proba": [float(x) for x in proba]
     }
 
 @app.get("/history")
