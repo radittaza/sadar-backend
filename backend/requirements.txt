@@ -6,3 +6,4 @@ python-jose
 joblib
 pandas
 scikit-learn
+email-validator

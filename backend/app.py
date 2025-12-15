@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, Header
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 import joblib
 import json
@@ -7,25 +8,23 @@ from pathlib import Path
 
 from db import SessionLocal, engine
 from models import User, History
-from models import Base as ModelsBase
+from db import Base as DbBase
 from auth import hash_password, verify_password, create_access_token, decode_token
 
-ModelsBase.metadata.create_all(bind=engine)
+# create tables
+DbBase.metadata.create_all(bind=engine)
 
 app = FastAPI(title="SADAR API")
-
-from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://sadar-backend.vercel.app",   
+        "https://sadar-backend.vercel.app",
     ],
     allow_methods=["*"],
     allow_headers=["*"],
-    allow_credentials=False, 
+    allow_credentials=False,
 )
-
 
 MODEL_PATH = Path(__file__).parent / "rf_model.joblib"
 LE_PATH    = Path(__file__).parent / "label_encoder.joblib"
@@ -60,49 +59,125 @@ def get_current_user(db: Session, authorization: str | None):
 class RegisterReq(BaseModel):
     username: str
     password: str
+    # ✅ simpan dari register supaya pengaturan bisa “sesuai input register”
+    name: str | None = None
+    email: EmailStr | None = None
+    address: str | None = None
 
 class LoginReq(BaseModel):
     username: str
     password: str
 
+class MeResp(BaseModel):
+    username: str
+    name: str | None = None
+    email: EmailStr | None = None
+    address: str | None = None
+
+class MeUpdateReq(BaseModel):
+    name: str | None = None
+    email: EmailStr | None = None
+    address: str | None = None
+
+class ChangePasswordReq(BaseModel):
+    currentPassword: str
+    newPassword: str
+
 class PredictReq(BaseModel):
-    jenis_kelamin: int      # 0/1
+    jenis_kelamin: int
     umur: int
-    tingkatan_kelas: int    # 10/11/12
+    tingkatan_kelas: int
     nilai: float
     q1: int; q2: int; q3: int; q4: int; q5: int; q6: int; q7: int; q8: int; q9: int
 
 # ---------- Routes ----------
-from fastapi import HTTPException
-
 @app.post("/register")
 def register(req: RegisterReq, db: Session = Depends(get_db)):
-    # ✅ cegah bcrypt error (maks 72 bytes)
-    if len(req.password.encode("utf-8")) > 72:
-        raise HTTPException(
-            status_code=400,
-            detail="Password terlalu panjang. Maksimal 72 karakter (lebih aman: <= 50)."
-        )
+    # PBKDF2 tidak punya limit 72 byte, tapi tetap kasih batas wajar:
+    if len(req.password) < 4:
+        raise HTTPException(status_code=400, detail="Password minimal 4 karakter")
 
     existing = db.query(User).filter(User.username == req.username).first()
     if existing:
         raise HTTPException(status_code=400, detail="Username already used")
 
-    u = User(username=req.username, password_hash=hash_password(req.password))
+    u = User(
+        username=req.username,
+        password_hash=hash_password(req.password),
+        name=req.name,
+        email=str(req.email) if req.email else None,
+        address=req.address
+    )
     db.add(u)
     db.commit()
     return {"message": "registered"}
 
 @app.post("/login")
 def login(req: LoginReq, db: Session = Depends(get_db)):
-    if len(req.password.encode("utf-8")) > 72:
-        raise HTTPException(status_code=400, detail="Password terlalu panjang.")
     user = db.query(User).filter(User.username == req.username).first()
     if not user or not verify_password(req.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Wrong username/password")
 
     token = create_access_token({"sub": user.username})
     return {"access_token": token, "token_type": "bearer"}
+
+# ✅ ambil profil user login
+@app.get("/me", response_model=MeResp)
+def me(
+    db: Session = Depends(get_db),
+    authorization: str | None = Header(default=None)
+):
+    user = get_current_user(db, authorization)
+    return {
+        "username": user.username,
+        "name": user.name,
+        "email": user.email,
+        "address": user.address
+    }
+
+# ✅ update profil user login
+@app.put("/me", response_model=MeResp)
+def update_me(
+    req: MeUpdateReq,
+    db: Session = Depends(get_db),
+    authorization: str | None = Header(default=None)
+):
+    user = get_current_user(db, authorization)
+
+    user.name = req.name
+    user.email = str(req.email) if req.email else None
+    user.address = req.address
+
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+
+    return {
+        "username": user.username,
+        "name": user.name,
+        "email": user.email,
+        "address": user.address
+    }
+
+# ✅ ganti password
+@app.post("/change-password")
+def change_password(
+    req: ChangePasswordReq,
+    db: Session = Depends(get_db),
+    authorization: str | None = Header(default=None)
+):
+    user = get_current_user(db, authorization)
+
+    if not verify_password(req.currentPassword, user.password_hash):
+        raise HTTPException(status_code=400, detail="Password saat ini salah")
+
+    if len(req.newPassword) < 4:
+        raise HTTPException(status_code=400, detail="Password baru minimal 4 karakter")
+
+    user.password_hash = hash_password(req.newPassword)
+    db.add(user)
+    db.commit()
+    return {"message": "password updated"}
 
 @app.post("/predict")
 def predict(
@@ -158,4 +233,3 @@ def history(
         "confidence": r.confidence,
         "input": json.loads(r.input_json)
     } for r in rows]
-
