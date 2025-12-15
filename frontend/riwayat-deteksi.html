@@ -7,35 +7,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
       body {
         font-family: "Inter", sans-serif;
       }
     </style>
   </head>
+
   <body class="bg-gray-50">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
       <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
         <div class="p-6">
-          <!-- Logo -->
           <div class="flex items-center space-x-2 mb-10">
             <img src="img/log.png" alt="SADAR Logo" class="h-8" />
           </div>
 
-          <!-- Navigation Menu -->
           <nav class="space-y-2">
-            <!-- Dashboard -->
             <a
               href="dashboard.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -46,17 +38,11 @@
               <span>Dashboard</span>
             </a>
 
-            <!-- Deteksi Depresi -->
             <a
               href="deteksi-depresi.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -67,17 +53,11 @@
               <span>Deteksi Depresi</span>
             </a>
 
-            <!-- Riwayat Deteksi - Active -->
             <a
               href="riwayat-deteksi.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -88,29 +68,18 @@
               <span>Riwayat Deteksi</span>
             </a>
 
-            <!-- Pengaturan -->
             <a
               href="pengaturan.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
                 />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <span>Pengaturan</span>
             </a>
@@ -118,7 +87,7 @@
         </div>
       </aside>
 
-      <!-- Main Content -->
+      <!-- Main -->
       <main class="flex-1 ml-64">
         <!-- Top Bar -->
         <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
@@ -126,35 +95,24 @@
             <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
 
             <div class="flex items-center space-x-4">
-              <!-- Search Bar -->
-              <div class="relative">
+              <div class="relative hidden md:block">
                 <input
+                  id="searchInput"
                   type="text"
                   placeholder="Search"
                   class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <svg
-                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
+                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
 
-              <!-- User Profile -->
+              <!-- ✅ User Profile (dinamis) -->
               <div class="flex items-center space-x-3">
-                <span class="text-sm font-medium text-gray-700"
-                  >Ferdy Permana</span
-                >
+                <span id="userName" class="text-sm font-medium text-gray-700">-</span>
                 <img
-                  src="https://ui-avatars.com/api/?name=Ferdy Permana&background=ec4899&color=fff"
+                  id="userAvatar"
+                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
                   alt="User Avatar"
                   class="w-10 h-10 rounded-full"
                 />
@@ -163,332 +121,234 @@
           </div>
         </header>
 
-        <!-- Dashboard Content -->
+        <!-- Content -->
         <div class="p-8">
           <div class="max-w-7xl mx-auto">
-            <!-- Filter/Sort -->
-            <div class="mb-6">
-              <button
-                class="flex items-center space-x-2 text-gray-700 font-medium hover:text-blue-600 transition"
-              >
-                <span>Minggu ini</span>
-                <svg
-                  class="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+            <!-- Filter -->
+            <div class="mb-6 flex items-center justify-between">
+              <div class="flex items-center space-x-2 text-gray-700 font-medium">
+                <span id="filterLabel">Semua Riwayat</span>
+              </div>
+
+              <div class="text-sm text-gray-500" id="countLabel"></div>
             </div>
 
-            <!-- History List -->
+            <!-- List container (✅ kosong dulu, no dummy) -->
             <div id="historyList" class="space-y-4">
-              <!-- History Item 1 -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition"
-              >
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                  <!-- Icon -->
-                  <div class="flex items-center space-x-4">
-                    <div
-                      class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        class="w-7 h-7 text-purple-600"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">
-                        Status Tingkat Depresi
-                      </p>
-                      <p class="text-sm text-purple-600">Rendah</p>
-                    </div>
-                  </div>
-
-                  <!-- Skor Analisis -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Skor Analisis</p>
-                    <p class="font-semibold text-gray-800">20%</p>
-                  </div>
-
-                  <!-- Jumlah Rekomendasi -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Jumlah Rekomendasi</p>
-                    <p class="font-semibold text-gray-800">6</p>
-                  </div>
-
-                  <!-- Tanggal -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
-                    <p class="font-semibold text-gray-800">21 Oktober 2025</p>
-                  </div>
-
-                  <!-- Action Button -->
-                  <div class="flex justify-end">
-                    <button
-                      onclick="window.location.href='riwayat-detail.html'"
-                      class="px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
-                    >
-                      Lihat Detail
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- History Item 2 -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition"
-              >
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                  <!-- Icon -->
-                  <div class="flex items-center space-x-4">
-                    <div
-                      class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        class="w-7 h-7 text-purple-600"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">
-                        Status Tingkat Depresi
-                      </p>
-                      <p class="text-sm text-purple-600">Rendah</p>
-                    </div>
-                  </div>
-
-                  <!-- Skor Analisis -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Skor Analisis</p>
-                    <p class="font-semibold text-gray-800">20%</p>
-                  </div>
-
-                  <!-- Jumlah Rekomendasi -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Jumlah Rekomendasi</p>
-                    <p class="font-semibold text-gray-800">6</p>
-                  </div>
-
-                  <!-- Tanggal -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
-                    <p class="font-semibold text-gray-800">21 Oktober 2025</p>
-                  </div>
-
-                  <!-- Action Button -->
-                  <div class="flex justify-end">
-                    <button
-                      onclick="window.location.href='riwayat-detail.html'"
-                      class="px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
-                    >
-                      Lihat Detail
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- History Item 3 -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition"
-              >
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                  <!-- Icon -->
-                  <div class="flex items-center space-x-4">
-                    <div
-                      class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        class="w-7 h-7 text-purple-600"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">
-                        Status Tingkat Depresi
-                      </p>
-                      <p class="text-sm text-purple-600">Rendah</p>
-                    </div>
-                  </div>
-
-                  <!-- Skor Analisis -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Skor Analisis</p>
-                    <p class="font-semibold text-gray-800">20%</p>
-                  </div>
-
-                  <!-- Jumlah Rekomendasi -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Jumlah Rekomendasi</p>
-                    <p class="font-semibold text-gray-800">6</p>
-                  </div>
-
-                  <!-- Tanggal -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
-                    <p class="font-semibold text-gray-800">21 Oktober 2025</p>
-                  </div>
-
-                  <!-- Action Button -->
-                  <div class="flex justify-end">
-                    <button
-                      onclick="window.location.href='riwayat-detail.html'"
-                      class="px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
-                    >
-                      Lihat Detail
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- History Item 4 -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition"
-              >
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                  <!-- Icon -->
-                  <div class="flex items-center space-x-4">
-                    <div
-                      class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        class="w-7 h-7 text-purple-600"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-bold text-gray-800">
-                        Status Tingkat Depresi
-                      </p>
-                      <p class="text-sm text-purple-600">Rendah</p>
-                    </div>
-                  </div>
-
-                  <!-- Skor Analisis -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Skor Analisis</p>
-                    <p class="font-semibold text-gray-800">20%</p>
-                  </div>
-
-                  <!-- Jumlah Rekomendasi -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Jumlah Rekomendasi</p>
-                    <p class="font-semibold text-gray-800">6</p>
-                  </div>
-
-                  <!-- Tanggal -->
-                  <div>
-                    <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
-                    <p class="font-semibold text-gray-800">21 Oktober 2025</p>
-                  </div>
-
-                  <!-- Action Button -->
-                  <div class="flex justify-end">
-                    <button
-                      onclick="window.location.href='riwayat-detail.html'"
-                      class="px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
-                    >
-                      Lihat Detail
-                    </button>
-                  </div>
-                </div>
+              <!-- loading state -->
+              <div id="loadingBox" class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">
+                Memuat riwayat...
               </div>
             </div>
           </div>
         </div>
       </main>
     </div>
-  
+
     <script src="sadar-api.js"></script>
     <script>
-      requireAuth();
-      const u = getUsername();
-      const el = document.getElementById("userName");
-      if (el) el.textContent = u;
-    </script>
-
-    <script>
-      window.onload = async () => {
+      function decodeJwtPayload(token) {
         try {
-          const list = await loadRiwayat();
-          const container = document.getElementById("historyList");
-          if (!container) return;
-
-          if (!list.length) {
-            container.innerHTML = '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">Belum ada riwayat deteksi.</div>';
-            return;
-          }
-
-          container.innerHTML = "";
-          list.forEach((r) => {
-            const t = new Date(r.created_at).toLocaleString();
-            container.innerHTML += `
-              <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition cursor-pointer"
-                   onclick='openDetail(${JSON.stringify(r).replace(/'/g,"&#39;")})'>
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="text-xl font-bold text-gray-800">${r.predicted_class}</h3>
-                    <p class="text-sm text-gray-500">${t}</p>
-                  </div>
-                  <div class="text-sm text-gray-600">Confidence ${(r.confidence*100).toFixed(1)}%</div>
-                </div>
-              </div>
-            `;
-          });
+          const base64Url = token.split(".")[1];
+          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split("")
+              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+              .join("")
+          );
+          return JSON.parse(jsonPayload);
         } catch (e) {
-          alert(e.message || "Gagal memuat riwayat");
+          return null;
         }
-      };
+      }
 
-      function openDetail(data) {
-        localStorage.setItem("riwayat_detail", JSON.stringify(data));
+      function setUserUI(username) {
+        const name = username || "-";
+        const el = document.getElementById("userName");
+        const avatar = document.getElementById("userAvatar");
+        if (el) el.textContent = name;
+        if (avatar) {
+          avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
+        }
+      }
+
+      function safeText(x) {
+        return String(x ?? "");
+      }
+
+      function formatDate(iso) {
+        if (!iso) return "-";
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return "-";
+        return d.toLocaleString("id-ID");
+      }
+
+      function mapLabelToBadge(label) {
+        const v = String(label || "").toLowerCase();
+        if (v.includes("tinggi") || v.includes("berat")) return "bg-red-100 text-red-700";
+        if (v.includes("sedang")) return "bg-yellow-100 text-yellow-700";
+        if (v.includes("rendah") || v.includes("normal")) return "bg-green-100 text-green-700";
+        return "bg-purple-100 text-purple-700";
+      }
+
+      function normalizeHistory(raw) {
+        if (!raw) return [];
+        if (Array.isArray(raw)) return raw;
+        if (Array.isArray(raw.items)) return raw.items;
+        return [];
+      }
+
+      function sortNewestFirst(list) {
+        return [...list].sort((a, b) => {
+          const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+          const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+          if (da && db) return db - da;
+          return (b.id || 0) - (a.id || 0);
+        });
+      }
+
+      function openDetail(obj) {
+        localStorage.setItem("riwayat_detail", JSON.stringify(obj));
         window.location.href = "riwayat-detail.html";
       }
-    </script>
 
+      function renderList(container, list) {
+        container.innerHTML = "";
+
+        if (!list.length) {
+          container.innerHTML =
+            '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">Belum ada riwayat deteksi.</div>';
+          return;
+        }
+
+        const frag = document.createDocumentFragment();
+
+        list.forEach((r) => {
+          const label =
+            r.predicted_class ||
+            r.label ||
+            r.risk ||
+            r.level ||
+            r.kategori ||
+            "Tidak diketahui";
+
+          const confidence =
+            typeof r.confidence === "number"
+              ? `${(r.confidence * 100).toFixed(1)}%`
+              : (typeof r.probability === "number"
+                  ? `${(r.probability * 100).toFixed(1)}%`
+                  : "-");
+
+          const dateStr = formatDate(r.created_at || r.createdAt || r.timestamp);
+
+          const card = document.createElement("div");
+          card.className =
+            "bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition cursor-pointer";
+
+          card.addEventListener("click", () => openDetail(r));
+
+          card.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+              <div class="flex items-center space-x-4 md:col-span-2">
+                <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-7 h-7 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="font-bold text-gray-800">Status Tingkat Depresi</p>
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${mapLabelToBadge(label)}">
+                    ${safeText(label)}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Confidence</p>
+                <p class="font-semibold text-gray-800">${safeText(confidence)}</p>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
+                <p class="font-semibold text-gray-800">${safeText(dateStr)}</p>
+              </div>
+
+              <div class="flex md:justify-end">
+                <button
+                  type="button"
+                  class="w-full md:w-auto px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
+                >
+                  Lihat Detail
+                </button>
+              </div>
+            </div>
+          `;
+
+          frag.appendChild(card);
+        });
+
+        container.appendChild(frag);
+      }
+
+      function attachSearch(allData) {
+        const input = document.getElementById("searchInput");
+        const container = document.getElementById("historyList");
+        const countLabel = document.getElementById("countLabel");
+
+        if (!input) return;
+
+        input.addEventListener("input", () => {
+          const q = input.value.trim().toLowerCase();
+
+          const filtered = allData.filter((r) => {
+            const label =
+              String(r.predicted_class || r.label || r.risk || r.level || r.kategori || "").toLowerCase();
+            const dt = String(r.created_at || r.createdAt || r.timestamp || "").toLowerCase();
+            return label.includes(q) || dt.includes(q);
+          });
+
+          renderList(container, filtered);
+          if (countLabel) countLabel.textContent = `${filtered.length} data`;
+        });
+      }
+
+      async function initRiwayat() {
+        if (typeof requireAuth === "function") requireAuth();
+
+        // set user
+        const token = typeof getToken === "function" ? getToken() : null;
+        const payload = token ? decodeJwtPayload(token) : null;
+        const username = payload?.sub || payload?.username || payload?.user || (typeof getUsername === "function" ? getUsername() : null);
+        setUserUI(username);
+
+        const container = document.getElementById("historyList");
+        const loadingBox = document.getElementById("loadingBox");
+        const countLabel = document.getElementById("countLabel");
+
+        try {
+          // ambil riwayat dari backend
+          // kamu sudah punya loadRiwayat() di sadar-api.js
+          const raw = await loadRiwayat();
+          const list = sortNewestFirst(normalizeHistory(raw));
+
+          if (loadingBox) loadingBox.remove();
+
+          renderList(container, list);
+          attachSearch(list);
+
+          if (countLabel) countLabel.textContent = `${list.length} data`;
+        } catch (e) {
+          if (loadingBox) loadingBox.remove();
+          container.innerHTML =
+            '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-red-600">Gagal memuat riwayat. Coba refresh.</div>';
+          console.error(e);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", initRiwayat);
+    </script>
   </body>
 </html>

@@ -8,35 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-
       body {
         font-family: "Inter", sans-serif;
       }
     </style>
   </head>
+
   <body class="bg-gray-50">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
       <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
         <div class="p-6">
-          <!-- Logo -->
           <div class="flex items-center space-x-2 mb-10">
             <img src="img/log.png" alt="SADAR Logo" class="h-8" />
           </div>
 
-          <!-- Navigation Menu -->
           <nav class="space-y-2">
-            <!-- Dashboard - Active -->
             <a
               href="dashboard.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -47,17 +39,11 @@
               <span>Dashboard</span>
             </a>
 
-            <!-- Deteksi Depresi -->
             <a
               href="deteksi-depresi.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -68,17 +54,11 @@
               <span>Deteksi Depresi</span>
             </a>
 
-            <!-- Riwayat Deteksi -->
             <a
               href="riwayat-deteksi.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -89,29 +69,18 @@
               <span>Riwayat Deteksi</span>
             </a>
 
-            <!-- Pengaturan -->
             <a
               href="pengaturan.html"
               class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
             >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
                 />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <span>Pengaturan</span>
             </a>
@@ -119,7 +88,7 @@
         </div>
       </aside>
 
-      <!-- Main Content -->
+      <!-- Main -->
       <main class="flex-1 ml-64">
         <!-- Top Bar -->
         <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
@@ -127,31 +96,21 @@
             <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
 
             <div class="flex items-center space-x-4">
-              <!-- Search Bar -->
-              <div class="relative">
+              <!-- Search -->
+              <div class="relative hidden md:block">
                 <input
                   type="text"
                   placeholder="Search"
                   class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <svg
-                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
+                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
 
-              <!-- User Profile -->
-              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
-
+              <!-- ✅ User Profile (ini yang tadinya div-nya salah) -->
+              <div class="flex items-center space-x-3">
+                <span id="userName" class="text-sm font-medium text-gray-700">-</span>
                 <img
                   id="userAvatar"
                   src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
@@ -163,7 +122,7 @@
           </div>
         </header>
 
-        <!-- Dashboard Content -->
+        <!-- Content -->
         <div class="p-8">
           <!-- Greeting -->
           <div class="mb-8">
@@ -173,22 +132,17 @@
             <p class="text-gray-600">Selamat datang di dashboard SADAR</p>
           </div>
 
-          <!-- Grid Layout -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Left Column -->
+            <!-- Left -->
             <div class="space-y-8">
-              <!-- Hasil Terakhir Deteksi Kamu -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-              >
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Hasil Terakhir Deteksi Kamu
-                </h3>
+              <!-- Last Detection -->
+              <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-800 mb-6">Hasil Terakhir Deteksi Kamu</h3>
 
                 <div class="mb-6">
                   <p class="text-gray-600 text-sm mb-2">Tingkat Resiko:</p>
                   <p id="lastRisk" class="text-4xl font-bold text-purple-500">-</p>
-                  <p id="lastRiskMeta" class="text-sm text-gray-500 mt-2"></p>
+                  <p id="lastRiskMeta" class="text-sm text-gray-500 mt-2">Belum ada riwayat deteksi.</p>
                 </div>
 
                 <button
@@ -199,282 +153,192 @@
                 </button>
               </div>
 
-              <!-- Edukasi Kesehatan Mental -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-              >
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Edukasi Kesehatan Mental
-                </h3>
+              <!-- Edukasi -->
+              <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-800 mb-6">Edukasi Kesehatan Mental</h3>
 
-                <!-- Article 1 -->
-                <div
-                  class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100"
-                >
-                  <div
-                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
+                <div class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span class="text-blue-600 text-xl font-bold">G</span>
                   </div>
                   <div>
-                    <h4 class="font-bold text-gray-800 mb-2">
-                      Artikel Mengenai Depresi
-                    </h4>
+                    <h4 class="font-bold text-gray-800 mb-2">Artikel Mengenai Depresi</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                      Belajar tentang mengetahui apa itu depresi dan cara
-                      mengenalinya dengan lebih baik.
+                      Belajar tentang mengetahui apa itu depresi dan cara mengenalinya dengan lebih baik.
                     </p>
                   </div>
                 </div>
 
-                <!-- Article 2 -->
                 <div class="flex items-start space-x-4">
-                  <div
-                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span class="text-blue-600 text-xl font-bold">G</span>
                   </div>
                   <div>
-                    <h4 class="font-bold text-gray-800 mb-2">
-                      Artikel Mengenai Gejala Depresi
-                    </h4>
+                    <h4 class="font-bold text-gray-800 mb-2">Artikel Mengenai Gejala Depresi</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                      Belajar tentang gejala depresi dan cara penanganannya
-                      dengan lebih baik.
+                      Belajar tentang gejala depresi dan cara penanganannya dengan lebih baik.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Right Column - Chart -->
-            <div
-              class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-            >
-              <h3 class="text-xl font-bold text-gray-800 mb-6">
-                Grafik Riwayat Depresi Kamu
-              </h3>
+            <!-- Right -->
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+              <h3 class="text-xl font-bold text-gray-800 mb-6">Grafik Riwayat Depresi Kamu</h3>
 
-              <!-- Chart Canvas -->
               <div class="relative h-80">
                 <canvas id="depresiChart"></canvas>
               </div>
+
+              <p id="chartHint" class="text-sm text-gray-500 mt-3">
+                Grafik akan muncul setelah kamu punya riwayat deteksi.
+              </p>
             </div>
           </div>
         </div>
       </main>
     </div>
 
-    <script>
-      // Chart.js Configuration
-      const ctx = document.getElementById("depresiChart").getContext("2d");
-
-      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, "rgba(99, 102, 241, 0.2)");
-      gradient.addColorStop(1, "rgba(99, 102, 241, 0.0)");
-
-      new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
-          datasets: [
-            {
-              label: "Tingkat Depresi",
-              data: [15, 25, 28, 35, 32, 38, 35],
-              borderColor: "rgb(99, 102, 241)",
-              backgroundColor: gradient,
-              borderWidth: 3,
-              fill: true,
-              tension: 0.4,
-              pointBackgroundColor: "rgb(99, 102, 241)",
-              pointBorderColor: "#fff",
-              pointBorderWidth: 2,
-              pointRadius: 5,
-              pointHoverRadius: 7,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              backgroundColor: "rgba(0, 0, 0, 0.8)",
-              padding: 12,
-              titleColor: "#fff",
-              bodyColor: "#fff",
-              borderColor: "rgb(99, 102, 241)",
-              borderWidth: 1,
-            },
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 50,
-              ticks: {
-                callback: function (value) {
-                  if (value === 0) return "Rendah";
-                  if (value === 25) return "Sedang";
-                  if (value === 50) return "Tinggi";
-                  return "";
-                },
-                color: "#9CA3AF",
-                font: {
-                  size: 12,
-                },
-              },
-              grid: {
-                color: "rgba(0, 0, 0, 0.05)",
-                drawBorder: false,
-              },
-            },
-            x: {
-              ticks: {
-                color: "#9CA3AF",
-                font: {
-                  size: 12,
-                },
-              },
-              grid: {
-                display: false,
-                drawBorder: false,
-              },
-            },
-          },
-        },
-      });
-    </script>
-  
     <script src="sadar-api.js"></script>
-<script>
-  function decodeJwtPayload(token) {
-    try {
-      const base64Url = token.split(".")[1];
-      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-      const jsonPayload = decodeURIComponent(
-        atob(base64)
-          .split("")
-          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-          .join("")
-      );
-      return JSON.parse(jsonPayload);
-    } catch (e) {
-      return null;
-    }
-  }
 
-  function setUserUI(username) {
-    const name = username || "-";
-    const el1 = document.getElementById("userName");
-    const el2 = document.getElementById("greetingName");
-    const avatar = document.getElementById("userAvatar");
-    if (el1) el1.textContent = name;
-    if (el2) el2.textContent = name;
-    if (avatar) avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
-  }
+    <script>
+      // ✅ pakai 1 chart instance saja
+      let chartInstance = null;
 
-  // Ambil history (gunakan endpoint backend kamu)
-  async function fetchHistory() {
-    // sesuaikan endpoint kalau backend kamu berbeda
-    return await apiFetch("/history", { method: "GET" });
-  }
+      function decodeJwtPayload(token) {
+        try {
+          const base64Url = token.split(".")[1];
+          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split("")
+              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+              .join("")
+          );
+          return JSON.parse(jsonPayload);
+        } catch (e) {
+          return null;
+        }
+      }
 
-  function normalizeHistory(history) {
-    // dukung beberapa kemungkinan bentuk data
-    if (!history) return [];
-    if (Array.isArray(history)) return history;
-    if (Array.isArray(history.items)) return history.items;
-    return [];
-  }
+      function setUserUI(username) {
+        const name = username || "-";
+        const el1 = document.getElementById("userName");
+        const el2 = document.getElementById("greetingName");
+        const avatar = document.getElementById("userAvatar");
 
-  function pickLatest(history) {
-    if (!history.length) return null;
+        if (el1) el1.textContent = name;
+        if (el2) el2.textContent = name;
+        if (avatar) {
+          avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
+        }
+      }
 
-    // coba urutkan berdasarkan created_at/createdAt/id
-    const copy = [...history];
-    copy.sort((a, b) => {
-      const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
-      const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
-      if (da && db) return db - da;
-      // fallback id
-      return (b.id || 0) - (a.id || 0);
-    });
-    return copy[0];
-  }
+      async function fetchHistory() {
+        // endpoint backend kamu
+        return await apiFetch("/history", { method: "GET" });
+      }
 
-  function renderLastDetection(latest) {
-    const riskEl = document.getElementById("lastRisk");
-    const metaEl = document.getElementById("lastRiskMeta");
+      function normalizeHistory(raw) {
+        if (!raw) return [];
+        if (Array.isArray(raw)) return raw;
+        if (Array.isArray(raw.items)) return raw.items;
+        return [];
+      }
 
-    if (!latest) {
-      if (riskEl) riskEl.textContent = "-";
-      if (metaEl) metaEl.textContent = "Belum ada riwayat deteksi.";
-      return;
-    }
+      function pickLatest(history) {
+        if (!history.length) return null;
 
-    // sesuaikan key jika backend kamu pakai nama field lain
-    const label = latest.label || latest.risk || latest.level || latest.kategori || "-";
-    const when = latest.created_at || latest.createdAt || latest.timestamp;
+        const copy = [...history];
+        copy.sort((a, b) => {
+          const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+          const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+          if (da && db) return db - da;
+          return (b.id || 0) - (a.id || 0);
+        });
+        return copy[0];
+      }
 
-    if (riskEl) riskEl.textContent = label;
+      function renderLastDetection(latest) {
+        const riskEl = document.getElementById("lastRisk");
+        const metaEl = document.getElementById("lastRiskMeta");
 
-    if (metaEl) {
-      metaEl.textContent = when ? `Terakhir: ${new Date(when).toLocaleString("id-ID")}` : "";
-    }
-  }
+        if (!latest) {
+          if (riskEl) riskEl.textContent = "-";
+          if (metaEl) metaEl.textContent = "Belum ada riwayat deteksi.";
+          return;
+        }
 
-  function toChartPoints(history) {
-    // ubah history jadi labels & data (angka)
-    // kalau backend kamu punya score, pakai itu. kalau cuma label, mapping sederhana.
-    const mapLabelToScore = (x) => {
-      const v = String(x || "").toLowerCase();
-      if (v.includes("rendah") || v.includes("normal")) return 10;
-      if (v.includes("sedang")) return 30;
-      if (v.includes("tinggi") || v.includes("berat")) return 45;
-      return 0;
-    };
+        const label = latest.label || latest.risk || latest.level || latest.kategori || "-";
+        const when = latest.created_at || latest.createdAt || latest.timestamp;
 
-    const sorted = [...history].sort((a, b) => {
-      const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
-      const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
-      return da - db;
-    });
+        if (riskEl) riskEl.textContent = label;
+        if (metaEl) metaEl.textContent = when ? `Terakhir: ${new Date(when).toLocaleString("id-ID")}` : "";
+      }
 
-    const labels = sorted.map((h, i) => {
-      const when = h.created_at || h.createdAt || h.timestamp;
-      return when ? new Date(when).toLocaleDateString("id-ID") : `#${i + 1}`;
-    });
+      function mapLabelToScore(label) {
+        const v = String(label || "").toLowerCase();
+        if (v.includes("rendah") || v.includes("normal")) return 10;
+        if (v.includes("sedang")) return 30;
+        if (v.includes("tinggi") || v.includes("berat")) return 45;
+        return 0;
+      }
 
-    const data = sorted.map((h) => {
-      if (typeof h.score === "number") return h.score;
-      if (typeof h.probability === "number") return Math.round(h.probability * 50);
-      const label = h.label || h.risk || h.level || h.kategori;
-      return mapLabelToScore(label);
-    });
+      function toChartPoints(history) {
+        const sorted = [...history].sort((a, b) => {
+          const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+          const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+          return da - db;
+        });
 
-    return { labels, data };
-  }
+        const labels = sorted.map((h, i) => {
+          const when = h.created_at || h.createdAt || h.timestamp;
+          return when ? new Date(when).toLocaleDateString("id-ID") : `#${i + 1}`;
+        });
 
-  async function initDashboard() {
-    // 1) set username dari token
-    const token = getToken?.();
-    const payload = token ? decodeJwtPayload(token) : null;
-    const username = payload?.sub || payload?.username || payload?.user || null;
-    setUserUI(username);
+        const data = sorted.map((h) => {
+          if (typeof h.score === "number") return h.score;
+          if (typeof h.probability === "number") return Math.round(h.probability * 50);
+          const label = h.label || h.risk || h.level || h.kategori;
+          return mapLabelToScore(label);
+        });
 
-    // 2) ambil history dan update UI
-    try {
-      const raw = await fetchHistory();
-      const history = normalizeHistory(raw);
-      const latest = pickLatest(history);
-      renderLastDetection(latest);
+        return { labels, data };
+      }
 
-      // 3) update chart (kalau ada canvas)
-      const canvas = document.getElementById("depresiChart");
-      if (canvas && window.Chart) {
+      function renderChart(history) {
+        const canvas = document.getElementById("depresiChart");
+        const hint = document.getElementById("chartHint");
+        if (!canvas || !window.Chart) return;
+
+        // destroy chart lama biar gak dobel
+        if (chartInstance) {
+          chartInstance.destroy();
+          chartInstance = null;
+        }
+
+        if (!history.length) {
+          if (hint) hint.textContent = "Grafik akan muncul setelah kamu punya riwayat deteksi.";
+          // tampilkan chart kosong
+          const ctx = canvas.getContext("2d");
+          chartInstance = new Chart(ctx, {
+            type: "line",
+            data: {
+              labels: ["-"],
+              datasets: [{ label: "Tingkat Depresi", data: [0] }],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+            },
+          });
+          return;
+        }
+
+        if (hint) hint.textContent = "";
+
         const ctx = canvas.getContext("2d");
         const gradient = ctx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, "rgba(99, 102, 241, 0.2)");
@@ -482,14 +346,14 @@
 
         const { labels, data } = toChartPoints(history);
 
-        new Chart(ctx, {
+        chartInstance = new Chart(ctx, {
           type: "line",
           data: {
-            labels: labels.length ? labels : ["-"],
+            labels,
             datasets: [
               {
                 label: "Tingkat Depresi",
-                data: data.length ? data : [0],
+                data,
                 borderColor: "rgb(99, 102, 241)",
                 backgroundColor: gradient,
                 borderWidth: 3,
@@ -518,7 +382,6 @@
                     if (value === 50) return "Tinggi";
                     return "";
                   },
-                  color: "#9CA3AF",
                 },
                 grid: { color: "rgba(0,0,0,0.05)", drawBorder: false },
               },
@@ -527,15 +390,31 @@
           },
         });
       }
-    } catch (e) {
-      renderLastDetection(null);
-      console.error(e);
-    }
-  }
 
-  document.addEventListener("DOMContentLoaded", initDashboard);
-</script>
+      async function initDashboard() {
+        // pastikan login
+        if (typeof requireAuth === "function") requireAuth();
 
+        const token = typeof getToken === "function" ? getToken() : null;
+        const payload = token ? decodeJwtPayload(token) : null;
+        const username = payload?.sub || payload?.username || payload?.user || null;
+        setUserUI(username);
 
+        try {
+          const raw = await fetchHistory();
+          const history = normalizeHistory(raw);
+
+          const latest = pickLatest(history);
+          renderLastDetection(latest);
+          renderChart(history);
+        } catch (e) {
+          console.error(e);
+          renderLastDetection(null);
+          renderChart([]);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", initDashboard);
+    </script>
   </body>
 </html>
