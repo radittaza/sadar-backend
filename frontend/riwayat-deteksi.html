@@ -1,210 +1,190 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Riwayat Deteksi - SADAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-      body { font-family: "Inter", sans-serif; }
-    </style>
-  </head>
-
-  <body class="bg-gray-50">
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
-        <div class="p-6">
-          <div class="flex items-center space-x-2 mb-10">
-            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
-          </div>
-
-          <nav class="space-y-2">
-            <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-              <span>Dashboard</span>
-            </a>
-
-            <a href="deteksi-depresi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Deteksi Depresi</span>
-            </a>
-
-            <a href="riwayat-deteksi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span>Riwayat Deteksi</span>
-            </a>
-
-            <a href="pengaturan.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Pengaturan</span>
-            </a>
-          </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Deteksi - SADAR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+      <div class="p-6">
+        <div class="flex items-center space-x-2 mb-10">
+          <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          <span class="text-xl font-bold text-gray-800">SADAR</span>
         </div>
-      </aside>
-
-      <!-- Main -->
-      <main class="flex-1 ml-64">
-        <!-- Top Bar -->
-        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div class="px-8 py-4 flex items-center justify-between">
-            <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
-
-            <div class="flex items-center space-x-4">
-              <div class="relative hidden md:block">
-                <input id="searchInput" type="text" placeholder="Search"
-                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-
-              <div class="flex items-center space-x-3">
-                <span id="userName" class="text-sm font-medium text-gray-700">-</span>
-                <img id="userAvatar"
-                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
-                  alt="User Avatar" class="w-10 h-10 rounded-full" />
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <!-- Content -->
-        <div class="p-8">
-          <div class="max-w-7xl mx-auto">
-            <div class="mb-6 flex items-center justify-between">
-              <div class="flex items-center space-x-2 text-gray-700 font-medium">
-                <span id="filterLabel">Semua Riwayat</span>
-              </div>
-              <div class="text-sm text-gray-500" id="countLabel"></div>
-            </div>
-
-            <div id="historyList" class="space-y-4">
-              <div id="loadingBox" class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">
-                Memuat riwayat...
-              </div>
+        <nav class="space-y-2">
+          <a href="dashboard.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="deteksi-depresi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Deteksi Depresi</span>
+          </a>
+          <a href="riwayat-deteksi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Riwayat Deteksi</span>
+          </a>
+          <a href="pengaturan.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Pengaturan</span>
+          </a>
+          <button onclick="confirmLogout()"
+            class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+            </svg>
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+    <main class="flex-1 ml-64">
+      <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="px-8 py-4 flex items-center justify-between">
+          <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3">
+              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
+              <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
+                alt="User Avatar" class="w-10 h-10 rounded-full" />
             </div>
           </div>
         </div>
-      </main>
-    </div>
-
-    <script src="sadar-api.js"></script>
-    <script>
-      function decodeJwtPayload(token) {
-        try {
-          const base64Url = token.split(".")[1];
-          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-          const jsonPayload = decodeURIComponent(
-            atob(base64).split("").map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join("")
-          );
-          return JSON.parse(jsonPayload);
-        } catch (e) { return null; }
+      </header>
+      <div class="p-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-6 flex items-center justify-between">
+            <div class="flex items-center space-x-2 text-gray-700 font-medium">
+              <span id="filterLabel">Semua Riwayat</span>
+            </div>
+            <div class="text-sm text-gray-500" id="countLabel"></div>
+          </div>
+          <div id="historyList" class="space-y-4">
+            <div id="loadingBox" class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">
+              Memuat riwayat...
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="sadar-api.js"></script>
+  <script>
+    function decodeJwtPayload(token) {
+      try {
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = decodeURIComponent(
+          atob(base64).split("").map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2)).join("")
+        );
+        return JSON.parse(jsonPayload);
+      } catch (e) { return null; }
+    }
+    function setUserUI(username) {
+      const name = username || "-";
+      const el = document.getElementById("userName");
+      const avatar = document.getElementById("userAvatar");
+      if (el) el.textContent = name;
+      if (avatar) avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
+    }
+    function safeText(x) { return String(x ?? ""); }
+    function formatDateTime(iso) {
+      if (!iso) return "-";
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return "-";
+      return d.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      }) + " " + d.toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+    function mapLabelToBadge(label) {
+      const v = String(label || "").toLowerCase();
+      if (v.includes("tinggi") || v.includes("berat")) return "bg-red-100 text-red-700";
+      if (v.includes("sedang")) return "bg-yellow-100 text-yellow-700";
+      if (v.includes("rendah") || v.includes("normal")) return "bg-green-100 text-green-700";
+      return "bg-purple-100 text-purple-700";
+    }
+    function normalizeHistory(raw) {
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw;
+      if (Array.isArray(raw.items)) return raw.items;
+      return [];
+    }
+    function sortNewestFirst(list) {
+      return [...list].sort((a, b) => {
+        const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
+        const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
+        if (da && db) return db - da;
+        return (b.id || 0) - (a.id || 0);
+      });
+    }
+    function computePersentaseFromInput(input) {
+      if (!input) return null;
+      let total = 0;
+      for (let i = 1; i <= 9; i++) {
+        const v = Number(input[`q${i}`]);
+        if (!isFinite(v)) return null;
+        total += v;
       }
-
-      function setUserUI(username) {
-        const name = username || "-";
-        const el = document.getElementById("userName");
-        const avatar = document.getElementById("userAvatar");
-        if (el) el.textContent = name;
-        if (avatar) avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=ec4899&color=fff`;
+      return Math.round((total / 27) * 1000) / 10;
+    }
+    function openDetail(obj) {
+      localStorage.setItem("riwayat_detail", JSON.stringify(obj));
+      window.location.href = "riwayat-detail.html";
+    }
+    function renderList(container, list) {
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML =
+          '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">Belum ada riwayat deteksi.</div>';
+        return;
       }
-
-      function safeText(x) { return String(x ?? ""); }
-
-      function formatDate(iso) {
-        if (!iso) return "-";
-        const d = new Date(iso);
-        if (isNaN(d.getTime())) return "-";
-        return d.toLocaleString("id-ID");
-      }
-
-      function mapLabelToBadge(label) {
-        const v = String(label || "").toLowerCase();
-        if (v.includes("tinggi") || v.includes("berat")) return "bg-red-100 text-red-700";
-        if (v.includes("sedang")) return "bg-yellow-100 text-yellow-700";
-        if (v.includes("rendah") || v.includes("normal")) return "bg-green-100 text-green-700";
-        return "bg-purple-100 text-purple-700";
-      }
-
-      function normalizeHistory(raw) {
-        if (!raw) return [];
-        if (Array.isArray(raw)) return raw;
-        if (Array.isArray(raw.items)) return raw.items;
-        return [];
-      }
-
-      function sortNewestFirst(list) {
-        return [...list].sort((a, b) => {
-          const da = new Date(a.created_at || a.createdAt || a.timestamp || 0).getTime();
-          const db = new Date(b.created_at || b.createdAt || b.timestamp || 0).getTime();
-          if (da && db) return db - da;
-          return (b.id || 0) - (a.id || 0);
-        });
-      }
-
-      function computePersentaseFromInput(input) {
-        if (!input) return null;
-        let total = 0;
-        for (let i = 1; i <= 9; i++) {
-          const v = Number(input[`q${i}`]);
-          if (!isFinite(v)) return null;
-          total += v;
-        }
-        return Math.round((total / 27) * 1000) / 10; // 1 decimal
-      }
-
-      function openDetail(obj) {
-        localStorage.setItem("riwayat_detail", JSON.stringify(obj));
-        window.location.href = "riwayat-detail.html";
-      }
-
-      function renderList(container, list) {
-        container.innerHTML = "";
-
-        if (!list.length) {
-          container.innerHTML =
-            '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-gray-600">Belum ada riwayat deteksi.</div>';
-          return;
-        }
-
-        const frag = document.createDocumentFragment();
-
-        list.forEach((r) => {
-          const label =
-            r.predicted_class || r.label || r.risk || r.level || r.kategori || "Tidak diketahui";
-
-          // ✅ Persentase Depresi: ambil analysis_score kalau ada, fallback hitung dari input.q1..q9
-          let pers = (r.analysis_score !== undefined && r.analysis_score !== null) ? Number(r.analysis_score) : null;
-          if (!isFinite(pers)) pers = null;
-          if (pers === null) pers = computePersentaseFromInput(r.input);
-
-          const persText = (pers !== null) ? `${pers.toFixed(1)}%` : "-";
-
-          const dateStr = formatDate(r.created_at || r.createdAt || r.timestamp);
-
-          const card = document.createElement("div");
-          card.className =
-            "bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition cursor-pointer";
-          card.addEventListener("click", () => openDetail(r));
-
-          card.innerHTML = `
+      const frag = document.createDocumentFragment();
+      list.forEach((r) => {
+        const label =
+          r.predicted_class || r.label || r.risk || r.level || r.kategori || "Tidak diketahui";
+        let pers = (r.analysis_score !== undefined && r.analysis_score !== null) ? Number(r.analysis_score) : null;
+        if (!isFinite(pers)) pers = null;
+        if (pers === null) pers = computePersentaseFromInput(r.input);
+        const persText = (pers !== null) ? `${pers.toFixed(1)}%` : "-";
+        const dateStr = formatDateTime(r.created_at || r.createdAt || r.timestamp);
+        const card = document.createElement("div");
+        card.className =
+          "bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition cursor-pointer";
+        card.addEventListener("click", () => openDetail(r));
+        card.innerHTML = `
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
               <div class="flex items-center space-x-4 md:col-span-2">
                 <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -213,7 +193,6 @@
                       d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-
                 <div>
                   <p class="font-bold text-gray-800">Status Tingkat Depresi</p>
                   <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${mapLabelToBadge(label)}">
@@ -221,83 +200,71 @@
                   </span>
                 </div>
               </div>
-
               <div>
                 <p class="text-sm text-gray-600 mb-1">Persentase Depresi</p>
                 <p class="font-semibold text-gray-800">${safeText(persText)}</p>
               </div>
-
               <div>
                 <p class="text-sm text-gray-600 mb-1">Tanggal Deteksi</p>
                 <p class="font-semibold text-gray-800">${safeText(dateStr)}</p>
               </div>
-
               <div class="flex md:justify-end">
                 <button type="button"
-                  class="w-full md:w-auto px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition">
+                  class="w-full md:w-auto px-6 py-2 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition">
                   Lihat Detail
                 </button>
               </div>
             </div>
           `;
-
-          frag.appendChild(card);
+        frag.appendChild(card);
+      });
+      container.appendChild(frag);
+    }
+    function attachSearch(allData) {
+      const input = document.getElementById("searchInput");
+      const container = document.getElementById("historyList");
+      const countLabel = document.getElementById("countLabel");
+      if (!input) return;
+      input.addEventListener("input", () => {
+        const q = input.value.trim().toLowerCase();
+        const filtered = allData.filter((r) => {
+          const label = String(r.predicted_class || r.label || r.risk || r.level || r.kategori || "").toLowerCase();
+          const dt = String(r.created_at || r.createdAt || r.timestamp || "").toLowerCase();
+          return label.includes(q) || dt.includes(q);
         });
-
-        container.appendChild(frag);
+        renderList(container, filtered);
+        if (countLabel) countLabel.textContent = `${filtered.length} data`;
+      });
+    }
+    async function initRiwayat() {
+      if (typeof requireAuth === "function") requireAuth();
+      const token = typeof getToken === "function" ? getToken() : null;
+      const payload = token ? decodeJwtPayload(token) : null;
+      const username = payload?.sub || payload?.username || payload?.user || (typeof getUsername === "function" ? getUsername() : null);
+      setUserUI(username);
+      const container = document.getElementById("historyList");
+      const loadingBox = document.getElementById("loadingBox");
+      const countLabel = document.getElementById("countLabel");
+      try {
+        const raw = await loadRiwayat();
+        const list = sortNewestFirst(normalizeHistory(raw));
+        if (loadingBox) loadingBox.remove();
+        renderList(container, list);
+        attachSearch(list);
+        if (countLabel) countLabel.textContent = `${list.length} data`;
+      } catch (e) {
+        if (loadingBox) loadingBox.remove();
+        container.innerHTML =
+          '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-red-600">Gagal memuat riwayat. Coba refresh.</div>';
+        console.error(e);
       }
-
-      function attachSearch(allData) {
-        const input = document.getElementById("searchInput");
-        const container = document.getElementById("historyList");
-        const countLabel = document.getElementById("countLabel");
-        if (!input) return;
-
-        input.addEventListener("input", () => {
-          const q = input.value.trim().toLowerCase();
-
-          const filtered = allData.filter((r) => {
-            const label = String(r.predicted_class || r.label || r.risk || r.level || r.kategori || "").toLowerCase();
-            const dt = String(r.created_at || r.createdAt || r.timestamp || "").toLowerCase();
-            return label.includes(q) || dt.includes(q);
-          });
-
-          renderList(container, filtered);
-          if (countLabel) countLabel.textContent = `${filtered.length} data`;
-        });
+    }
+    document.addEventListener("DOMContentLoaded", initRiwayat);
+    function confirmLogout() {
+      if (confirm("Apakah kamu yakin ingin logout?")) {
+        logout();
       }
-
-      async function initRiwayat() {
-        if (typeof requireAuth === "function") requireAuth();
-
-        const token = typeof getToken === "function" ? getToken() : null;
-        const payload = token ? decodeJwtPayload(token) : null;
-        const username = payload?.sub || payload?.username || payload?.user || (typeof getUsername === "function" ? getUsername() : null);
-        setUserUI(username);
-
-        const container = document.getElementById("historyList");
-        const loadingBox = document.getElementById("loadingBox");
-        const countLabel = document.getElementById("countLabel");
-
-        try {
-          const raw = await loadRiwayat();
-          const list = sortNewestFirst(normalizeHistory(raw));
-
-          if (loadingBox) loadingBox.remove();
-
-          renderList(container, list);
-          attachSearch(list);
-
-          if (countLabel) countLabel.textContent = `${list.length} data`;
-        } catch (e) {
-          if (loadingBox) loadingBox.remove();
-          container.innerHTML =
-            '<div class="bg-white rounded-2xl p-6 border border-gray-200 text-red-600">Gagal memuat riwayat. Coba refresh.</div>';
-          console.error(e);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", initRiwayat);
-    </script>
-  </body>
+    }
+  </script>
+</body>
 </html>

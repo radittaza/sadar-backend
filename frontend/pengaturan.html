@@ -1,599 +1,400 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pengaturan - SADAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-      body {
-        font-family: "Inter", sans-serif;
-      }
-    </style>
-  </head>
-
-  <body class="bg-gray-50">
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
-        <div class="p-6">
-          <!-- Logo -->
-          <div class="flex items-center space-x-2 mb-10">
-            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
-          </div>
-
-          <!-- Navigation Menu -->
-          <nav class="space-y-2">
-            <!-- Dashboard -->
-            <a
-              href="dashboard.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              <span>Dashboard</span>
-            </a>
-
-            <!-- Deteksi Depresi -->
-            <a
-              href="deteksi-depresi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>Deteksi Depresi</span>
-            </a>
-
-            <!-- Riwayat Deteksi -->
-            <a
-              href="riwayat-deteksi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              <span>Riwayat Deteksi</span>
-            </a>
-
-            <!-- Pengaturan - Active -->
-            <a
-              href="pengaturan.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <span>Pengaturan</span>
-            </a>
-
-            <!-- Logout (opsional) -->
-            <button
-              id="btnLogout"
-              class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-              type="button"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"
-                />
-              </svg>
-              <span>Logout</span>
-            </button>
-          </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengaturan - SADAR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+      <div class="p-6">
+        <div class="flex items-center space-x-2 mb-10">
+          <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          <span class="text-xl font-bold text-gray-800">SADAR</span>
         </div>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="flex-1 ml-64">
-        <!-- Top Bar -->
-        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div class="px-8 py-4 flex items-center justify-between">
-            <h1 class="text-3xl font-bold text-gray-800">Setting</h1>
-
-            <div class="flex items-center space-x-4">
-              <!-- Search Bar (UI saja) -->
-              <div class="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <svg
-                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-
-              <!-- User Profile -->
-              <div class="flex items-center space-x-3">
-                <span id="userName" class="text-sm font-medium text-gray-700">-</span>
-                <img
-                  id="userAvatarTop"
-                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
-                  alt="User Avatar"
-                  class="w-10 h-10 rounded-full"
-                />
-              </div>
+        <nav class="space-y-2">
+          <a href="dashboard.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="deteksi-depresi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Deteksi Depresi</span>
+          </a>
+          <a href="riwayat-deteksi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Riwayat Deteksi</span>
+          </a>
+          <a href="pengaturan.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Pengaturan</span>
+          </a>
+          <button id="btnLogout"
+            class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-medium"
+            type="button">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+            </svg>
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+    <main class="flex-1 ml-64">
+      <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="px-8 py-4 flex items-center justify-between">
+          <h1 class="text-3xl font-bold text-gray-800">Setting</h1>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3">
+              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
+              <img id="userAvatarTop" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
+                alt="User Avatar" class="w-10 h-10 rounded-full" />
             </div>
           </div>
-        </header>
-
-        <!-- Content -->
-        <div class="p-8">
-          <div class="max-w-5xl mx-auto">
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-200">
-              <!-- Tabs -->
-              <div class="border-b border-gray-200">
-                <div class="flex px-8 pt-6">
-                  <button
-                    id="editProfilTab"
-                    onclick="switchTab('editProfil')"
-                    class="px-6 pb-4 font-semibold text-blue-600 border-b-2 border-blue-600"
-                    type="button"
-                  >
-                    Edit Profil
-                  </button>
-                  <button
-                    id="gantiPasswordTab"
-                    onclick="switchTab('gantiPassword')"
-                    class="px-6 pb-4 font-semibold text-gray-500 hover:text-gray-700"
-                    type="button"
-                  >
-                    Ganti Password
-                  </button>
-                </div>
+        </div>
+      </header>
+      <div class="p-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200">
+            <div class="border-b border-gray-200">
+              <div class="flex px-8 pt-6">
+                <button id="editProfilTab" onclick="switchTab('editProfil')"
+                  class="px-6 pb-4 font-semibold text-blue-600 border-b-2 border-blue-600" type="button">
+                  Edit Profil
+                </button>
+                <button id="gantiPasswordTab" onclick="switchTab('gantiPassword')"
+                  class="px-6 pb-4 font-semibold text-gray-500 hover:text-gray-700" type="button">
+                  Ganti Password
+                </button>
               </div>
-
-              <!-- Edit Profil Content -->
-              <div id="editProfilContent" class="p-8">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <!-- Avatar Section -->
-                  <div class="flex flex-col items-center">
-                    <div class="relative">
-                      <img
-                        id="profileAvatar"
-                        src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff&size=150"
-                        alt="Profile Avatar"
-                        class="w-32 h-32 rounded-full"
-                      />
-                      <button
-                        class="absolute bottom-0 right-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition"
-                        type="button"
-                        title="Avatar otomatis dari username"
-                      >
-                        <svg
-                          class="w-5 h-5 text-white"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-
-                    <p class="text-sm text-gray-500 mt-4 text-center">
-                      Avatar dibuat otomatis dari username.
-                    </p>
-                  </div>
-
-                  <!-- Form Section -->
-                  <div class="lg:col-span-2 space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <!-- Nama -->
-                      <div>
-                        <label class="block text-gray-700 font-medium mb-2">Nama</label>
-                        <input
-                          id="profileName"
-                          type="text"
-                          placeholder="Nama kamu"
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-
-                      <!-- Username (readonly) -->
-                      <div>
-                        <label class="block text-gray-700 font-medium mb-2">Username</label>
-                        <input
-                          id="profileUsername"
-                          type="text"
-                          readonly
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-700 focus:outline-none"
-                        />
-                        <p class="text-xs text-gray-500 mt-2">
-                          Username diambil dari akun login dan tidak bisa diubah.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <!-- Email -->
-                      <div>
-                        <label class="block text-gray-700 font-medium mb-2">Email</label>
-                        <input
-                          id="profileEmail"
-                          type="email"
-                          placeholder="email@contoh.com"
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-
-                      <!-- Password display -->
-                      <div>
-                        <label class="block text-gray-700 font-medium mb-2">Password</label>
-                        <input
-                          type="password"
-                          value="**********"
-                          readonly
-                          class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-700 focus:outline-none"
-                        />
-                        <p class="text-xs text-gray-500 mt-2">
-                          Untuk mengganti password, buka tab “Ganti Password”.
-                        </p>
-                      </div>
-                    </div>
-
-                    <!-- Alamat -->
-                    <div>
-                      <label class="block text-gray-700 font-medium mb-2">Alamat</label>
-                      <textarea
-                        id="profileAddress"
-                        rows="4"
-                        placeholder="Alamat kamu"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      ></textarea>
-                    </div>
-
-                    <!-- Save Button -->
-                    <div class="flex items-center justify-between">
-                      <p id="profileStatus" class="text-sm text-gray-500"></p>
-                      <button
-                        id="saveProfileBtn"
-                        type="button"
-                        class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
-                      >
-                        Save
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ganti Password Content -->
-              <div id="gantiPasswordContent" class="p-8 hidden">
-                <div class="max-w-2xl mx-auto space-y-6">
-                  <!-- Password Saat Ini -->
-                  <div>
-                    <label class="block text-gray-700 font-medium mb-2">Password Saat Ini</label>
-                    <input
-                      id="currentPassword"
-                      type="password"
-                      placeholder="Masukkan password saat ini"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <!-- Password Baru -->
-                  <div>
-                    <label class="block text-gray-700 font-medium mb-2">Password Baru</label>
-                    <input
-                      id="newPassword"
-                      type="password"
-                      maxlength="50"
-                      placeholder="Masukkan password baru"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                    <p class="text-xs text-gray-500 mt-2">Saran: gunakan 8–20 karakter.</p>
-                  </div>
-
-                  <!-- Konfirmasi Password Baru -->
-                  <div>
-                    <label class="block text-gray-700 font-medium mb-2">Konfirmasi Password Baru</label>
-                    <input
-                      id="confirmNewPassword"
-                      type="password"
-                      maxlength="50"
-                      placeholder="Ulangi password baru"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-
-                  <!-- Save Button -->
-                  <div class="flex items-center justify-between pt-4">
-                    <p id="pwdStatus" class="text-sm text-gray-500"></p>
+            </div>
+            <div id="editProfilContent" class="p-8">
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center">
+                  <div class="relative">
+                    <img id="profileAvatar"
+                      src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff&size=150"
+                      alt="Profile Avatar" class="w-32 h-32 rounded-full" />
                     <button
-                      id="savePasswordBtn"
-                      type="button"
-                      class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg"
-                    >
+                      class="absolute bottom-0 right-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition"
+                      type="button" title="Avatar otomatis dari username">
+                      <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-4 text-center">
+                    Avatar dibuat otomatis dari username.
+                  </p>
+                  <div class="mt-4">
+                    <input type="file" id="ppUpload" accept="image/*" class="hidden" onchange="handlePPUpload(event)" />
+                    <button type="button" onclick="document.getElementById('ppUpload').click()"
+                      class="w-full py-2 px-4 border border-gray-300 rounded-lg text-sm text-gray-600 hover:bg-gray-50 transition">
+                      Upload Foto Profil
+                    </button>
+                  </div>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-2">Nama</label>
+                      <input id="profileName" type="text" placeholder="Nama kamu"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-2">Username</label>
+                      <input id="profileUsername" type="text" readonly
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-700 focus:outline-none" />
+                      <p class="text-xs text-gray-500 mt-2">
+                        Username diambil dari akun login dan tidak bisa diubah.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-2">Email</label>
+                      <input id="profileEmail" type="email" placeholder="email@contoh.com"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div>
+                      <label class="block text-gray-700 font-medium mb-2">Password</label>
+                      <input type="password" value="**********" readonly
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-700 focus:outline-none" />
+                      <p class="text-xs text-gray-500 mt-2">
+                        Untuk mengganti password, buka tab “Ganti Password”.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 font-medium mb-2">Alamat</label>
+                    <textarea id="profileAddress" rows="4" placeholder="Alamat kamu"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <p id="profileStatus" class="text-sm text-gray-500"></p>
+                    <button id="saveProfileBtn" type="button"
+                      class="px-8 py-3 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition shadow-lg">
                       Save
                     </button>
                   </div>
                 </div>
               </div>
-
+            </div>
+            <div id="gantiPasswordContent" class="p-8 hidden">
+              <div class="max-w-2xl mx-auto space-y-6">
+                <div>
+                  <label class="block text-gray-700 font-medium mb-2">Password Saat Ini</label>
+                  <input id="currentPassword" type="password" placeholder="Masukkan password saat ini"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-2">Password Baru</label>
+                  <input id="newPassword" type="password" maxlength="50" placeholder="Masukkan password baru"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  <p class="text-xs text-gray-500 mt-2">Saran: gunakan 8–20 karakter.</p>
+                </div>
+                <div>
+                  <label class="block text-gray-700 font-medium mb-2">Konfirmasi Password Baru</label>
+                  <input id="confirmNewPassword" type="password" maxlength="50" placeholder="Ulangi password baru"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+                <div class="flex items-center justify-between pt-4">
+                  <p id="pwdStatus" class="text-sm text-gray-500"></p>
+                  <button id="savePasswordBtn" type="button"
+                    class="px-8 py-3 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition shadow-lg">
+                    Save
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
-
-    <!-- Tabs -->
-    <script>
-      function switchTab(tabName) {
-        document.getElementById("editProfilContent").classList.add("hidden");
-        document.getElementById("gantiPasswordContent").classList.add("hidden");
-
+      </div>
+    </main>
+  </div>
+  <script>
+    function switchTab(tabName) {
+      document.getElementById("editProfilContent").classList.add("hidden");
+      document.getElementById("gantiPasswordContent").classList.add("hidden");
+      document
+        .getElementById("editProfilTab")
+        .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+      document
+        .getElementById("gantiPasswordTab")
+        .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+      document.getElementById("editProfilTab").classList.add("text-gray-500");
+      document.getElementById("gantiPasswordTab").classList.add("text-gray-500");
+      if (tabName === "editProfil") {
+        document.getElementById("editProfilContent").classList.remove("hidden");
         document
           .getElementById("editProfilTab")
-          .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
+          .classList.add("text-blue-600", "border-b-2", "border-blue-600");
+        document.getElementById("editProfilTab").classList.remove("text-gray-500");
+      } else {
+        document.getElementById("gantiPasswordContent").classList.remove("hidden");
         document
           .getElementById("gantiPasswordTab")
-          .classList.remove("text-blue-600", "border-b-2", "border-blue-600");
-
-        document.getElementById("editProfilTab").classList.add("text-gray-500");
-        document.getElementById("gantiPasswordTab").classList.add("text-gray-500");
-
-        if (tabName === "editProfil") {
-          document.getElementById("editProfilContent").classList.remove("hidden");
-          document
-            .getElementById("editProfilTab")
-            .classList.add("text-blue-600", "border-b-2", "border-blue-600");
-          document.getElementById("editProfilTab").classList.remove("text-gray-500");
-        } else {
-          document.getElementById("gantiPasswordContent").classList.remove("hidden");
-          document
-            .getElementById("gantiPasswordTab")
-            .classList.add("text-blue-600", "border-b-2", "border-blue-600");
-          document.getElementById("gantiPasswordTab").classList.remove("text-gray-500");
-        }
+          .classList.add("text-blue-600", "border-b-2", "border-blue-600");
+        document.getElementById("gantiPasswordTab").classList.remove("text-gray-500");
       }
-    </script>
-
-    <!-- SADAR API -->
-    <script src="sadar-api.js"></script>
-
-    <script>
-      // ===== Helpers (token -> username) =====
-      function decodeJwtPayload(token) {
-        try {
-          const base64Url = token.split(".")[1];
-          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-          const jsonPayload = decodeURIComponent(
-            atob(base64)
-              .split("")
-              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-              .join("")
-          );
-          return JSON.parse(jsonPayload);
-        } catch {
-          return null;
-        }
+    }
+  </script>
+  <script src="sadar-api.js"></script>
+  <script>
+    function decodeJwtPayload(token) {
+      try {
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = decodeURIComponent(
+          atob(base64)
+            .split("")
+            .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+            .join("")
+        );
+        return JSON.parse(jsonPayload);
+      } catch {
+        return null;
       }
-
-      function setUserTopbar(username) {
-        const name = username || "-";
-        const el = document.getElementById("userName");
-        const avatar = document.getElementById("userAvatarTop");
-        const avatar2 = document.getElementById("profileAvatar");
-        if (el) el.textContent = name;
-        const url = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-          name
-        )}&background=ec4899&color=fff`;
-        if (avatar) avatar.src = url;
-        if (avatar2) avatar2.src = url + "&size=150";
-      }
-
-      // ===== Profile storage fallback =====
-      const PROFILE_KEY = "sadar_profile";
-
-      function loadProfileLocal(username) {
-        try {
-          const all = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
-          return all[username] || null;
-        } catch {
-          return null;
-        }
-      }
-
-      function saveProfileLocal(username, data) {
+    }
+    function setUserTopbar(username) {
+      const name = username || "-";
+      const el = document.getElementById("userName");
+      const avatar = document.getElementById("userAvatarTop");
+      const avatar2 = document.getElementById("profileAvatar");
+      if (el) el.textContent = name;
+      const url = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+        name
+      )}&background=ec4899&color=fff`;
+      if (avatar) avatar.src = url;
+      if (avatar2) avatar2.src = url + "&size=150";
+    }
+    const PROFILE_KEY = "sadar_profile";
+    function loadProfileLocal(username) {
+      try {
         const all = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
-        all[username] = data;
-        localStorage.setItem(PROFILE_KEY, JSON.stringify(all));
+        return all[username] || null;
+      } catch {
+        return null;
       }
-
-      function setProfileForm(data) {
-        document.getElementById("profileName").value = data?.name || "";
-        document.getElementById("profileEmail").value = data?.email || "";
-        document.getElementById("profileAddress").value = data?.address || "";
+    }
+    function saveProfileLocal(username, data) {
+      const all = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
+      all[username] = data;
+      localStorage.setItem(PROFILE_KEY, JSON.stringify(all));
+    }
+    function setProfileForm(data) {
+      document.getElementById("profileName").value = data?.name || "";
+      document.getElementById("profileEmail").value = data?.email || "";
+      document.getElementById("profileAddress").value = data?.address || "";
+    }
+    async function tryLoadProfileFromBackend() {
+      return await apiFetch("/me", { method: "GET" });
+    }
+    async function trySaveProfileToBackend(payload) {
+      return await apiFetch("/me", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    }
+    async function tryChangePassword(currentPassword, newPassword) {
+      return await apiFetch("/change-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+    }
+    async function initSettings() {
+      requireAuth();
+      const token = getToken?.();
+      const payload = token ? decodeJwtPayload(token) : null;
+      const username = payload?.sub || payload?.username || getUsername?.() || "";
+      setUserTopbar(username);
+      document.getElementById("profileUsername").value = username || "-";
+      try {
+        const me = await tryLoadProfileFromBackend();
+        setProfileForm(me);
+        const st = document.getElementById("profileStatus");
+        if (st) st.textContent = "Profil dimuat dari server.";
+        return;
+      } catch (e) {
+        const local = loadProfileLocal(username);
+        setProfileForm(local);
+        const st = document.getElementById("profileStatus");
+        if (st) st.textContent = "Profil dimuat lokal (server belum mendukung /me).";
       }
-
-      async function tryLoadProfileFromBackend() {
-        // butuh endpoint backend: GET /me
-        // kalau belum ada, akan fallback ke localStorage
-        return await apiFetch("/me", { method: "GET" });
-      }
-
-      async function trySaveProfileToBackend(payload) {
-        // butuh endpoint backend: PUT /me
-        return await apiFetch("/me", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      }
-
-      async function tryChangePassword(currentPassword, newPassword) {
-        // butuh endpoint backend: POST /change-password
-        return await apiFetch("/change-password", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ currentPassword, newPassword }),
-        });
-      }
-
-      // ===== Init page =====
-      async function initSettings() {
-        requireAuth();
-
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      initSettings();
+      const btnLogout = document.getElementById("btnLogout");
+      if (btnLogout) btnLogout.addEventListener("click", confirmLogout);
+      document.getElementById("saveProfileBtn")?.addEventListener("click", async () => {
         const token = getToken?.();
         const payload = token ? decodeJwtPayload(token) : null;
         const username = payload?.sub || payload?.username || getUsername?.() || "";
-        setUserTopbar(username);
-
-        // isi username readonly
-        document.getElementById("profileUsername").value = username || "-";
-
-        // 1) coba backend
+        if (!username) return alert("Tidak ada user login.");
+        const payloadUpdate = {
+          name: document.getElementById("profileName").value.trim(),
+          email: document.getElementById("profileEmail").value.trim(),
+          address: document.getElementById("profileAddress").value.trim(),
+        };
+        const st = document.getElementById("profileStatus");
+        if (st) st.textContent = "Menyimpan...";
         try {
-          const me = await tryLoadProfileFromBackend();
-          setProfileForm(me);
-          const st = document.getElementById("profileStatus");
-          if (st) st.textContent = "Profil dimuat dari server.";
+          await trySaveProfileToBackend(payloadUpdate);
+          if (st) st.textContent = "Profil tersimpan di server.";
+          alert("Profil berhasil disimpan.");
           return;
         } catch (e) {
-          // 2) fallback local
-          const local = loadProfileLocal(username);
-          setProfileForm(local);
-          const st = document.getElementById("profileStatus");
-          if (st) st.textContent = "Profil dimuat lokal (server belum mendukung /me).";
+          saveProfileLocal(username, payloadUpdate);
+          if (st) st.textContent = "Profil tersimpan lokal (server belum mendukung /me).";
+          alert("Profil tersimpan (lokal).");
         }
-      }
-
-      // ===== Button handlers =====
-      document.addEventListener("DOMContentLoaded", () => {
-        initSettings();
-
-        const btnLogout = document.getElementById("btnLogout");
-        if (btnLogout) btnLogout.addEventListener("click", logout);
-
-        document.getElementById("saveProfileBtn")?.addEventListener("click", async () => {
-          const token = getToken?.();
-          const payload = token ? decodeJwtPayload(token) : null;
-          const username = payload?.sub || payload?.username || getUsername?.() || "";
-          if (!username) return alert("Tidak ada user login.");
-
-          const payloadUpdate = {
-            name: document.getElementById("profileName").value.trim(),
-            email: document.getElementById("profileEmail").value.trim(),
-            address: document.getElementById("profileAddress").value.trim(),
-          };
-
-          const st = document.getElementById("profileStatus");
-          if (st) st.textContent = "Menyimpan...";
-
-          // coba simpan ke backend dulu
-          try {
-            await trySaveProfileToBackend(payloadUpdate);
-            if (st) st.textContent = "Profil tersimpan di server.";
-            alert("Profil berhasil disimpan.");
-            return;
-          } catch (e) {
-            // fallback simpan lokal
-            saveProfileLocal(username, payloadUpdate);
-            if (st) st.textContent = "Profil tersimpan lokal (server belum mendukung /me).";
-            alert("Profil tersimpan (lokal).");
-          }
-        });
-
-        document.getElementById("savePasswordBtn")?.addEventListener("click", async () => {
-          const cur = document.getElementById("currentPassword").value;
-          const nw = document.getElementById("newPassword").value;
-          const conf = document.getElementById("confirmNewPassword").value;
-
-          const st = document.getElementById("pwdStatus");
-          if (nw !== conf) {
-            if (st) st.textContent = "Konfirmasi password tidak sama.";
-            return alert("Konfirmasi password tidak sama.");
-          }
-          if (!nw || nw.length < 4) {
-            if (st) st.textContent = "Password baru terlalu pendek.";
-            return alert("Password baru terlalu pendek.");
-          }
-
-          if (st) st.textContent = "Menyimpan...";
-
-          try {
-            await tryChangePassword(cur, nw);
-            if (st) st.textContent = "Password berhasil diubah.";
-            alert("Password berhasil diubah.");
-          } catch (e) {
-            if (st) st.textContent = "Backend belum mendukung ganti password.";
-            alert("Gagal: backend belum punya endpoint /change-password (atau password saat ini salah).");
-          }
-        });
       });
-    </script>
-  </body>
+      document.getElementById("savePasswordBtn")?.addEventListener("click", async () => {
+        const cur = document.getElementById("currentPassword").value;
+        const nw = document.getElementById("newPassword").value;
+        const conf = document.getElementById("confirmNewPassword").value;
+        const st = document.getElementById("pwdStatus");
+        if (nw !== conf) {
+          if (st) st.textContent = "Konfirmasi password tidak sama.";
+          return alert("Konfirmasi password tidak sama.");
+        }
+        if (!nw || nw.length < 4) {
+          if (st) st.textContent = "Password baru terlalu pendek.";
+          return alert("Password baru terlalu pendek.");
+        }
+        if (st) st.textContent = "Menyimpan...";
+        try {
+          await tryChangePassword(cur, nw);
+          if (st) st.textContent = "Password berhasil diubah.";
+          alert("Password berhasil diubah.");
+        } catch (e) {
+          if (st) st.textContent = "Backend belum mendukung ganti password.";
+          alert("Gagal: backend belum punya endpoint /change-password (atau password saat ini salah).");
+        }
+      });
+    });
+    function confirmLogout() {
+      if (confirm("Apakah kamu yakin ingin logout?")) {
+        logout();
+      }
+    }
+    function handlePPUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const base64 = e.target.result;
+        const token = getToken?.();
+        const payload = token ? decodeJwtPayload(token) : null;
+        const username = payload?.sub || payload?.username || getUsername?.() || "";
+        const ppData = JSON.parse(localStorage.getItem("sadar_pp") || "{}");
+        ppData[username] = base64;
+        localStorage.setItem("sadar_pp", JSON.stringify(ppData));
+        document.getElementById("profileAvatar").src = base64;
+        document.getElementById("userAvatarTop").src = base64;
+        alert("Foto profil berhasil diupload!");
+      };
+      reader.readAsDataURL(file);
+    }
+    function loadCustomPP(username) {
+      const ppData = JSON.parse(localStorage.getItem("sadar_pp") || "{}");
+      if (ppData[username]) {
+        document.getElementById("profileAvatar").src = ppData[username];
+        document.getElementById("userAvatarTop").src = ppData[username];
+      }
+    }
+    const initUsername = getUsername?.() || "";
+    loadCustomPP(initUsername);
+  </script>
+</body>
 </html>

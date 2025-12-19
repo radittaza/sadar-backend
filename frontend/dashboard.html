@@ -1,482 +1,368 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - SADAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-      body {
-        font-family: "Inter", sans-serif;
-      }
-    </style>
-  </head>
 
-  <body class="bg-gray-50">
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
-        <div class="p-6">
-          <div class="flex items-center space-x-2 mb-10">
-            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - SADAR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
-          <nav class="space-y-2">
-            <a
-              href="dashboard.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              <span>Dashboard</span>
-            </a>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
 
-            <a
-              href="deteksi-depresi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>Deteksi Depresi</span>
-            </a>
-
-            <a
-              href="riwayat-deteksi.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              <span>Riwayat Deteksi</span>
-            </a>
-
-            <a
-              href="pengaturan.html"
-              class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium"
-            >
-              <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <span>Pengaturan</span>
-            </a>
-          </nav>
+<body class="bg-gray-50">
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+      <div class="p-6">
+        <div class="flex items-center space-x-2 mb-10">
+          <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          <span class="text-xl font-bold text-gray-800">SADAR</span>
         </div>
-      </aside>
-
-      <!-- Main -->
-      <main class="flex-1 ml-64">
-        <!-- Top Bar -->
-        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div class="px-8 py-4 flex items-center justify-between">
-            <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
-
-            <div class="flex items-center space-x-4">
-              <div class="relative hidden md:block">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <svg
-                  class="w-5 h-5 text-gray-400 absolute left-3 top-2.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-
-              <!-- User Profile -->
-              <div class="flex items-center space-x-3">
-                <span id="userName" class="text-sm font-medium text-gray-700"
-                  >-</span
-                >
-                <img
-                  id="userAvatar"
-                  src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
-                  alt="User Avatar"
-                  class="w-10 h-10 rounded-full"
-                />
-              </div>
+        <nav class="space-y-2">
+          <a href="dashboard.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="deteksi-depresi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Deteksi Depresi</span>
+          </a>
+          <a href="riwayat-deteksi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Riwayat Deteksi</span>
+          </a>
+          <a href="pengaturan.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Pengaturan</span>
+          </a>
+          <button onclick="confirmLogout()"
+            class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+            </svg>
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+    <main class="flex-1 ml-64">
+      <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="px-8 py-4 flex items-center justify-between">
+          <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3">
+              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
+              <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
+                alt="User Avatar" class="w-10 h-10 rounded-full" />
             </div>
           </div>
-        </header>
-
-        <!-- Content -->
-        <div class="p-8">
-          <!-- Greeting -->
-          <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">
-              Halo <span id="greetingName">-</span>,
-            </h2>
-            <p class="text-gray-600">Selamat datang di dashboard SADAR</p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Left -->
-            <div class="space-y-8">
-              <!-- Last Detection -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-              >
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Hasil Terakhir Deteksi Kamu
-                </h3>
-
-                <div class="mb-6">
-                  <p class="text-gray-600 text-sm mb-2">Tingkat Resiko:</p>
-                  <p id="lastRisk" class="text-4xl font-bold text-purple-500">
-                    -
-                  </p>
-                  <p id="lastRiskMeta" class="text-sm text-gray-500 mt-2">
-                    Memuat riwayat...
-                  </p>
-                </div>
-
-                <button
-                  onclick="window.location.href='deteksi-depresi.html'"
-                  class="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-md"
-                >
-                  Deteksi Sekarang
-                </button>
-              </div>
-
-              <!-- Edukasi -->
-              <div
-                class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-              >
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Edukasi Kesehatan Mental
-                </h3>
-
-                <div
-                  class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100"
-                >
-                  <div
-                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
-                    <span class="text-blue-600 text-xl font-bold">G</span>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-gray-800 mb-2">
-                      Artikel Mengenai Depresi
-                    </h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                      Belajar tentang mengetahui apa itu depresi dan cara
-                      mengenalinya dengan lebih baik.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                  <div
-                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                  >
-                    <span class="text-blue-600 text-xl font-bold">G</span>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-gray-800 mb-2">
-                      Artikel Mengenai Gejala Depresi
-                    </h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                      Belajar tentang gejala depresi dan cara penanganannya
-                      dengan lebih baik.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right -->
-            <div
-              class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200"
-            >
+        </div>
+      </header>
+      <div class="p-8">
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            Halo <span id="greetingName">-</span>
+          </h2>
+          <p class="text-gray-600">Selamat datang di dashboard SADAR</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="space-y-8">
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
               <h3 class="text-xl font-bold text-gray-800 mb-6">
-                Grafik Riwayat Depresi Kamu
+                Hasil Terakhir Deteksi Kamu
               </h3>
-
-              <div class="relative h-80">
-                <canvas id="depresiChart"></canvas>
+              <div class="mb-6">
+                <p class="text-gray-600 text-sm mb-2">Tingkat Resiko:</p>
+                <p id="lastRisk" class="text-4xl font-bold text-purple-500">
+                  -
+                </p>
+                <p id="lastRiskMeta" class="text-sm text-gray-500 mt-2">
+                  Memuat riwayat...
+                </p>
               </div>
-
-              <p id="chartHint" class="text-sm text-gray-500 mt-3">
-                Memuat grafik...
-              </p>
+              <button onclick="window.location.href='deteksi-depresi.html'"
+                class="w-full py-3 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition shadow-md">
+                Deteksi Sekarang
+              </button>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+              <h3 class="text-xl font-bold text-gray-800 mb-6">
+                Edukasi Kesehatan Mental
+              </h3>
+              <a href="https://www.alodokter.com/depresi" target="_blank"
+                class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100 hover:bg-gray-50 rounded-lg p-2 -m-2 transition">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span class="text-blue-600 text-xl font-bold">A</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-2">
+                    Artikel: Apa Itu Depresi?
+                  </h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Belajar tentang mengetahui apa itu depresi dan cara mengenalinya dengan lebih baik.
+                  </p>
+                </div>
+              </a>
+              <a href="https://www.halodoc.com/kesehatan/depresi" target="_blank"
+                class="flex items-start space-x-4 hover:bg-gray-50 rounded-lg p-2 -m-2 transition">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span class="text-green-600 text-xl font-bold">H</span>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800 mb-2">
+                    Artikel: Gejala & Penanganan Depresi
+                  </h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Belajar tentang gejala depresi dan cara penanganannya dengan lebih baik.
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">
+              Grafik Riwayat Depresi Kamu
+            </h3>
+            <div class="relative h-80">
+              <canvas id="depresiChart"></canvas>
+            </div>
+            <p id="chartHint" class="text-sm text-gray-500 mt-3">
+              Memuat grafik...
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
-
-    <script src="sadar-api.js"></script>
-
-    <script>
-      let chartInstance = null;
-
-      function setUserUI(username) {
-        const name = username || "-";
-        const el1 = document.getElementById("userName");
-        const el2 = document.getElementById("greetingName");
-        const avatar = document.getElementById("userAvatar");
-
-        if (el1) el1.textContent = name;
-        if (el2) el2.textContent = name;
-        if (avatar) {
-          avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-            name
-          )}&background=ec4899&color=fff`;
+      </div>
+    </main>
+  </div>
+  <script src="sadar-api.js"></script>
+  <script>
+    let chartInstance = null;
+    function setUserUI(username) {
+      const name = username || "-";
+      const el1 = document.getElementById("userName");
+      const el2 = document.getElementById("greetingName");
+      const avatar = document.getElementById("userAvatar");
+      if (el1) el1.textContent = name;
+      if (el2) el2.textContent = name;
+      if (avatar) {
+        avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+          name
+        )}&background=ec4899&color=fff`;
+      }
+    }
+    function normalizeHistory(raw) {
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw;
+      if (Array.isArray(raw.items)) return raw.items;
+      return [];
+    }
+    function getDateMs(x) {
+      const t = new Date(x || 0).getTime();
+      return isNaN(t) ? 0 : t;
+    }
+    function pickLatest(history) {
+      if (!history.length) return null;
+      const copy = [...history];
+      copy.sort((a, b) => {
+        const da = getDateMs(a.created_at || a.createdAt || a.timestamp);
+        const db = getDateMs(b.created_at || b.createdAt || b.timestamp);
+        if (da && db) return db - da;
+        return (b.id || 0) - (a.id || 0);
+      });
+      return copy[0];
+    }
+    function riskLabelFromItem(item) {
+      return (
+        item?.predicted_class ||
+        item?.label ||
+        item?.risk ||
+        item?.level ||
+        item?.kategori ||
+        "-"
+      );
+    }
+    function renderLastDetection(latest) {
+      const riskEl = document.getElementById("lastRisk");
+      const metaEl = document.getElementById("lastRiskMeta");
+      if (!latest) {
+        if (riskEl) riskEl.textContent = "-";
+        if (metaEl) metaEl.textContent = "Belum ada riwayat deteksi.";
+        return;
+      }
+      const label = riskLabelFromItem(latest);
+      const when = latest.created_at || latest.createdAt || latest.timestamp;
+      if (riskEl) riskEl.textContent = label;
+      if (metaEl)
+        metaEl.textContent = when
+          ? `Terakhir: ${formatDateTime(when)}`
+          : "";
+    }
+    function mapLabelToScore(label) {
+      const v = String(label || "").toLowerCase();
+      if (v.includes("normal") || v.includes("rendah")) return 10;
+      if (v.includes("sedang")) return 30;
+      if (v.includes("tinggi") || v.includes("berat")) return 45;
+      return 0;
+    }
+    function computePersentaseFromInput(input) {
+      if (!input) return null;
+      let total = 0;
+      for (let i = 1; i <= 9; i++) {
+        const v = Number(input[`q${i}`]);
+        if (!isFinite(v)) return null;
+        total += v;
+      }
+      return Math.round((total / 27) * 1000) / 10;
+    }
+    function toChartPoints(history) {
+      const sorted = [...history].sort((a, b) => {
+        const da = new Date(
+          a.created_at || a.createdAt || a.timestamp || 0
+        ).getTime();
+        const db = new Date(
+          b.created_at || b.createdAt || b.timestamp || 0
+        ).getTime();
+        return da - db;
+      });
+      const labels = sorted.map((h, i) => {
+        const when = h.created_at || h.createdAt || h.timestamp;
+        return when
+          ? formatDateTime(when)
+          : `#${i + 1}`;
+      });
+      const data = sorted.map((h) => {
+        let p =
+          h.analysis_score !== undefined && h.analysis_score !== null
+            ? Number(h.analysis_score)
+            : null;
+        if (!isFinite(p)) p = null;
+        if (p === null) p = computePersentaseFromInput(h.input);
+        if (p === null) {
+          const label =
+            h.predicted_class || h.label || h.risk || h.level || h.kategori;
+          p = mapLabelToScore(label) * 2;
         }
-      }
-
-      function normalizeHistory(raw) {
-        if (!raw) return [];
-        if (Array.isArray(raw)) return raw;
-        if (Array.isArray(raw.items)) return raw.items;
-        return [];
-      }
-
-      function getDateMs(x) {
-        const t = new Date(x || 0).getTime();
-        return isNaN(t) ? 0 : t;
-      }
-
-      function pickLatest(history) {
-        if (!history.length) return null;
-        const copy = [...history];
-        copy.sort((a, b) => {
-          const da = getDateMs(a.created_at || a.createdAt || a.timestamp);
-          const db = getDateMs(b.created_at || b.createdAt || b.timestamp);
-          if (da && db) return db - da;
-          return (b.id || 0) - (a.id || 0);
-        });
-        return copy[0];
-      }
-
-      function riskLabelFromItem(item) {
-        return (
-          item?.predicted_class ||
-          item?.label ||
-          item?.risk ||
-          item?.level ||
-          item?.kategori ||
-          "-"
-        );
-      }
-
-      function renderLastDetection(latest) {
-        const riskEl = document.getElementById("lastRisk");
-        const metaEl = document.getElementById("lastRiskMeta");
-
-        if (!latest) {
-          if (riskEl) riskEl.textContent = "-";
-          if (metaEl) metaEl.textContent = "Belum ada riwayat deteksi.";
-          return;
-        }
-
-        const label = riskLabelFromItem(latest);
-        const when = latest.created_at || latest.createdAt || latest.timestamp;
-
-        if (riskEl) riskEl.textContent = label;
-        if (metaEl)
-          metaEl.textContent = when
-            ? `Terakhir: ${new Date(when).toLocaleString("id-ID")}`
-            : "";
-      }
-
-      function mapLabelToScore(label) {
-        const v = String(label || "").toLowerCase();
-        if (v.includes("normal") || v.includes("rendah")) return 10;
-        if (v.includes("sedang")) return 30;
-        if (v.includes("tinggi") || v.includes("berat")) return 45;
-        return 0;
-      }
-
-      function computePersentaseFromInput(input) {
-        if (!input) return null;
-        let total = 0;
-        for (let i = 1; i <= 9; i++) {
-          const v = Number(input[`q${i}`]);
-          if (!isFinite(v)) return null;
-          total += v;
-        }
-        return Math.round((total / 27) * 1000) / 10; // 1 decimal
-      }
-
-      function toChartPoints(history) {
-        const sorted = [...history].sort((a, b) => {
-          const da = new Date(
-            a.created_at || a.createdAt || a.timestamp || 0
-          ).getTime();
-          const db = new Date(
-            b.created_at || b.createdAt || b.timestamp || 0
-          ).getTime();
-          return da - db;
-        });
-
-        const labels = sorted.map((h, i) => {
-          const when = h.created_at || h.createdAt || h.timestamp;
-          return when
-            ? new Date(when).toLocaleDateString("id-ID")
-            : `#${i + 1}`;
-        });
-
-        const data = sorted.map((h) => {
-          let p =
-            h.analysis_score !== undefined && h.analysis_score !== null
-              ? Number(h.analysis_score)
-              : null;
-          if (!isFinite(p)) p = null;
-
-          if (p === null) p = computePersentaseFromInput(h.input);
-
-          if (p === null) {
-            const label =
-              h.predicted_class || h.label || h.risk || h.level || h.kategori;
-            p = mapLabelToScore(label) * 2; // mapLabelToScore kamu 0..50, jadi *2 => 0..100
-          }
-
-          return p;
-        });
-
-        return { labels, data };
-      }
-
-      function renderChart(history) {
-        const canvas = document.getElementById("depresiChart");
-        const hint = document.getElementById("chartHint");
-        if (!canvas || !window.Chart) return;
-
-        // buat chart sekali, lalu update data
-        if (!chartInstance) {
-          const ctx = canvas.getContext("2d");
-          chartInstance = new Chart(ctx, {
-            type: "line",
-            data: {
-              labels: ["-"],
-              datasets: [{ label: "Tingkat Depresi", data: [0] }],
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: { legend: { display: false } },
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  max: 100,
-                  ticks: {
-                    callback: function (value) {
-                      if (value === 0) return "0%";
-                      if (value === 50) return "50%";
-                      if (value === 100) return "100%";
-                      return "";
-                    },
+        return p;
+      });
+      return { labels, data };
+    }
+    function renderChart(history) {
+      const canvas = document.getElementById("depresiChart");
+      const hint = document.getElementById("chartHint");
+      if (!canvas || !window.Chart) return;
+      if (!chartInstance) {
+        const ctx = canvas.getContext("2d");
+        chartInstance = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["-"],
+            datasets: [{
+              label: "Tingkat Depresi",
+              data: [0],
+              backgroundColor: "#9090F4",
+              borderRadius: 8,
+              barThickness: 40
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    if (value === 0) return "0%";
+                    if (value === 50) return "50%";
+                    if (value === 100) return "100%";
+                    return "";
                   },
-                  grid: { color: "rgba(0,0,0,0.05)", drawBorder: false },
                 },
-                x: { grid: { display: false, drawBorder: false } },
+                grid: { color: "rgba(0,0,0,0.05)", drawBorder: false },
               },
+              x: { grid: { display: false, drawBorder: false } },
             },
-          });
-        }
-
-        if (!history.length) {
-          if (hint)
-            hint.textContent =
-              "Grafik akan muncul setelah kamu punya riwayat deteksi.";
-          chartInstance.data.labels = ["-"];
-          chartInstance.data.datasets[0].data = [0];
-          chartInstance.update();
-          return;
-        }
-
-        if (hint) hint.textContent = "";
-
-        const { labels, data } = toChartPoints(history);
-        chartInstance.data.labels = labels;
-        chartInstance.data.datasets[0].data = data;
+          },
+        });
+      }
+      if (!history.length) {
+        if (hint)
+          hint.textContent =
+            "Grafik akan muncul setelah kamu punya riwayat deteksi.";
+        chartInstance.data.labels = ["-"];
+        chartInstance.data.datasets[0].data = [0];
         chartInstance.update();
+        return;
       }
-
-      async function initDashboard() {
-        // login wajib
-        if (typeof requireAuth === "function") requireAuth();
-
-        // user dari localStorage (paling stabil)
-        const username =
-          typeof getUsername === "function" ? getUsername() : "User";
-        setUserUI(username);
-
-        try {
-          // pakai fungsi yang memang ada di sadar-api.js kamu
-          const raw = await loadRiwayat();
-          const history = normalizeHistory(raw);
-
-          renderLastDetection(pickLatest(history));
-          renderChart(history);
-        } catch (e) {
-          console.error(e);
-          renderLastDetection(null);
-          renderChart([]);
-        }
+      if (hint) hint.textContent = "";
+      const { labels, data } = toChartPoints(history);
+      chartInstance.data.labels = labels;
+      chartInstance.data.datasets[0].data = data;
+      chartInstance.update();
+    }
+    async function initDashboard() {
+      if (typeof requireAuth === "function") requireAuth();
+      const username =
+        typeof getUsername === "function" ? getUsername() : "User";
+      setUserUI(username);
+      try {
+        const raw = await loadRiwayat();
+        const history = normalizeHistory(raw);
+        renderLastDetection(pickLatest(history));
+        renderChart(history);
+      } catch (e) {
+        console.error(e);
+        renderLastDetection(null);
+        renderChart([]);
       }
+    }
+    document.addEventListener("DOMContentLoaded", initDashboard);
+    function formatDateTime(iso) {
+      if (!iso) return "-";
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return "-";
+      return d.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      }) + " " + d.toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+    function confirmLogout() {
+      if (confirm("Apakah kamu yakin ingin logout?")) {
+        logout();
+      }
+    }
+  </script>
+</body>
 
-      document.addEventListener("DOMContentLoaded", initDashboard);
-    </script>
-  </body>
 </html>

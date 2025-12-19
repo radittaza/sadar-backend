@@ -1,237 +1,286 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Riwayat Deteksi - SADAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-      body { font-family: "Inter", sans-serif; }
-    </style>
-  </head>
-
-  <body class="bg-gray-50">
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
-        <div class="p-6">
-          <div class="flex items-center space-x-2 mb-10">
-            <img src="img/log.png" alt="SADAR Logo" class="h-8" />
-          </div>
-
-          <nav class="space-y-2">
-            <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
-              <span>Dashboard</span>
-            </a>
-
-            <a href="deteksi-depresi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Deteksi Depresi</span>
-            </a>
-
-            <a href="riwayat-deteksi.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span>Riwayat Deteksi</span>
-            </a>
-
-            <a href="pengaturan.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Pengaturan</span>
-            </a>
-          </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Riwayat Deteksi - SADAR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex min-h-screen">
+    <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
+      <div class="p-6">
+        <div class="flex items-center space-x-2 mb-10">
+          <img src="img/log.png" alt="SADAR Logo" class="h-8" />
+          <span class="text-xl font-bold text-gray-800">SADAR</span>
         </div>
-      </aside>
-
-      <!-- Main -->
-      <main class="flex-1 ml-64">
-        <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div class="px-8 py-4 flex items-center justify-between">
-            <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
-
-            <div class="flex items-center space-x-4">
-              <div class="relative">
-                <input type="text" placeholder="Search"
-                  class="w-64 pl-10 pr-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-
-              <div class="flex items-center space-x-3">
-                <span id="userName" class="text-sm font-medium text-gray-700">-</span>
-                <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
-                  alt="User Avatar" class="w-10 h-10 rounded-full" />
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div class="p-8">
-          <div class="max-w-5xl mx-auto">
-            <div class="mb-6">
-              <button onclick="window.location.href='riwayat-deteksi.html'"
-                class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 19l-7-7 7-7" />
-                </svg>
-                <span class="font-medium">Kembali</span>
-              </button>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-200">
-              <h2 class="text-2xl font-bold text-gray-800 mb-2">Hasil Deteksi Kamu</h2>
-              <p id="detailTanggal" class="text-sm text-gray-500 mb-6">-</p>
-
-              <div class="mb-8">
-                <h3 class="text-3xl font-bold text-gray-800 mb-2">
-                  Tingkat Risiko Depresi:
-                  <span id="riskLabel" class="font-extrabold">-</span>
-                </h3>
-                <p class="text-gray-600">
-                  Persentase Depresi:
-                  <span id="riskScore" class="font-semibold">-</span>
-                </p>
-              </div>
-
-              <div class="mb-10">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">Saran dan Rekomendasi</h3>
-                <ol id="rekomList" class="space-y-4 text-gray-700 list-decimal pl-5"></ol>
-              </div>
-
-              <div class="flex justify-center">
-                <button onclick="window.location.href='riwayat-deteksi.html'"
-                  class="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-blue-600 transition shadow-lg">
-                  Kembali
-                </button>
-              </div>
+        <nav class="space-y-2">
+          <a href="dashboard.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="deteksi-depresi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Deteksi Depresi</span>
+          </a>
+          <a href="riwayat-deteksi.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-blue-50 text-blue-600 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>Riwayat Deteksi</span>
+          </a>
+          <a href="pengaturan.html"
+            class="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Pengaturan</span>
+          </a>
+          <button onclick="confirmLogout()"
+            class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+            </svg>
+            <span>Logout</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+    <main class="flex-1 ml-64">
+      <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="px-8 py-4 flex items-center justify-between">
+          <h1 class="text-3xl font-bold text-gray-800">Riwayat Deteksi</h1>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3">
+              <span id="userName" class="text-sm font-medium text-gray-700">-</span>
+              <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=ec4899&color=fff"
+                alt="User Avatar" class="w-10 h-10 rounded-full" />
             </div>
           </div>
         </div>
-      </main>
-    </div>
-
-    <script src="sadar-api.js"></script>
-
-    <script>
-      requireAuth();
-
-      // topbar user
-      const u = getUsername();
-      const el = document.getElementById("userName");
-      const av = document.getElementById("userAvatar");
-      if (el) el.textContent = u || "-";
-      if (av) av.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(u || "User")}&background=ec4899&color=fff`;
-    </script>
-
-    <script>
-      function normalizeRiskLabel(x) {
-        const v = String(x || "").toLowerCase();
-        if (v.includes("normal")) return "Normal";
-        if (v.includes("rendah")) return "Rendah";
-        if (v.includes("sedang")) return "Sedang";
-        if (v.includes("tinggi") || v.includes("berat")) return "Tinggi";
-        return x || "-";
-      }
-
-      function riskColorClass(label) {
-        if (label === "Normal" || label === "Rendah") return "text-green-600";
-        if (label === "Sedang") return "text-yellow-600";
-        if (label === "Tinggi") return "text-red-600";
-        return "text-gray-800";
-      }
-
-      function rekomendasiByRisk(label) {
-        if (label === "Normal" || label === "Rendah") {
-          return [
-            "Pertahankan rutinitas sehat (tidur cukup, makan teratur, minum air yang cukup).",
-            "Lakukan aktivitas yang kamu suka secara konsisten (hobi, olahraga ringan, journaling).",
-            "Kelola stres dengan istirahat singkat dan teknik napas dalam saat mulai terasa tertekan.",
-            "Jaga koneksi sosial: ngobrol dengan teman/keluarga walau sebentar.",
-            "Jika gejala mulai mengganggu aktivitas harian, pertimbangkan konsultasi dengan konselor/guru BK."
-          ];
-        }
-        if (label === "Sedang") {
-          return [
-            "Coba atur pola tidur & bangun yang konsisten (hindari begadang).",
-            "Kurangi beban berlebih: buat daftar prioritas harian, kerjakan yang paling penting dulu.",
-            "Ceritakan kondisi kamu ke orang terpercaya (teman dekat/keluarga/guru BK).",
-            "Lakukan aktivitas fisik ringan 15–30 menit (jalan, stretching) untuk bantu mood.",
-            "Pertimbangkan konsultasi profesional (konselor/psikolog) bila perasaan sedih/cemas berlangsung > 2 minggu."
-          ];
-        }
+      </header>
+      <div class="p-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-6">
+            <button onclick="window.location.href='riwayat-deteksi.html'"
+              class="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span class="font-medium">Kembali</span>
+            </button>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Hasil Deteksi Kamu</h2>
+            <p id="detailTanggal" class="text-sm text-gray-500 mb-6">-</p>
+            <div class="mb-8">
+              <h3 class="text-3xl font-bold text-gray-800 mb-2">
+                Tingkat Risiko Depresi:
+                <span id="riskLabel" class="font-extrabold">-</span>
+              </h3>
+              <p class="text-gray-600">
+                Persentase Depresi:
+                <span id="riskScore" class="font-semibold">-</span>
+              </p>
+            </div>
+            <div class="mb-10">
+              <h3 class="text-xl font-bold text-gray-800 mb-4">Saran dan Rekomendasi</h3>
+              <ol id="rekomList" class="space-y-4 text-gray-700 list-decimal pl-5"></ol>
+            </div>
+            <button onclick="window.location.href='riwayat-deteksi.html'"
+              class="px-8 py-3 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition shadow-lg">
+              Kembali
+            </button>
+          </div>
+          <div id="qaSection" class="mt-8 pt-8 border-t border-gray-200">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Riwayat Pertanyaan & Jawaban</h3>
+            <div id="qaList" class="space-y-3"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </main>
+  </div>
+  <script src="sadar-api.js"></script>
+  <script>
+    requireAuth();
+    const u = getUsername();
+    const el = document.getElementById("userName");
+    const av = document.getElementById("userAvatar");
+    if (el) el.textContent = u || "-";
+    if (av) av.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(u || "User")}&background=ec4899&color=fff`;
+  </script>
+  <script>
+    function normalizeRiskLabel(x) {
+      const v = String(x || "").toLowerCase();
+      if (v.includes("normal")) return "Normal";
+      if (v.includes("rendah")) return "Rendah";
+      if (v.includes("sedang")) return "Sedang";
+      if (v.includes("tinggi") || v.includes("berat")) return "Tinggi";
+      return x || "-";
+    }
+    function riskColorClass(label) {
+      if (label === "Normal" || label === "Rendah") return "text-green-600";
+      if (label === "Sedang") return "text-yellow-600";
+      if (label === "Tinggi") return "text-red-600";
+      return "text-gray-800";
+    }
+    function rekomendasiByRisk(label) {
+      if (label === "Normal" || label === "Rendah") {
         return [
-          "Jangan dipendam sendiri—segera cari bantuan dari orang dewasa/teman/keluarga yang kamu percaya.",
-          "Pertimbangkan untuk konsultasi profesional (psikolog/psikiater/konselor sekolah) secepatnya.",
-          "Kurangi pemicu stres sementara: istirahat, batasi overthinking, dan hindari membandingkan diri di media sosial.",
-          "Jaga kebutuhan dasar: makan teratur, tidur cukup, dan tetap minum air.",
-          "Jika muncul pikiran menyakiti diri atau merasa tidak aman, segera hubungi layanan darurat setempat / orang terdekat untuk menemani."
+          "Pertahankan rutinitas sehat (tidur cukup, makan teratur, minum air yang cukup).",
+          "Lakukan aktivitas yang kamu suka secara konsisten (hobi, olahraga ringan, journaling).",
+          "Kelola stres dengan istirahat singkat dan teknik napas dalam saat mulai terasa tertekan.",
+          "Jaga koneksi sosial: ngobrol dengan teman/keluarga walau sebentar.",
+          "Jika gejala mulai mengganggu aktivitas harian, pertimbangkan konsultasi dengan konselor/guru BK."
         ];
       }
-
-      function computePersentaseFromInput(input) {
-        // q1..q9 masing-masing 0..3 => total/27*100
-        if (!input) return null;
-        let total = 0;
-        for (let i = 1; i <= 9; i++) {
-          const v = Number(input[`q${i}`]);
-          if (!isFinite(v)) return null;
-          total += v;
-        }
-        return Math.round((total / 27) * 1000) / 10; // 1 decimal
+      if (label === "Sedang") {
+        return [
+          "Coba atur pola tidur & bangun yang konsisten (hindari begadang).",
+          "Kurangi beban berlebih: buat daftar prioritas harian, kerjakan yang paling penting dulu.",
+          "Ceritakan kondisi kamu ke orang terpercaya (teman dekat/keluarga/guru BK).",
+          "Lakukan aktivitas fisik ringan 15–30 menit (jalan, stretching) untuk bantu mood.",
+          "Pertimbangkan konsultasi profesional (konselor/psikolog) bila perasaan sedih/cemas berlangsung > 2 minggu."
+        ];
       }
-
-      const d = JSON.parse(localStorage.getItem("riwayat_detail") || "null");
-      if (!d) window.location.href = "riwayat-deteksi.html";
-
-      const label = normalizeRiskLabel(d.predicted_class || d.label || d.risk);
-
-      // ✅ Persentase Depresi: analysis_score kalau ada, fallback hitung dari input
-      let pers = (d.analysis_score !== undefined && d.analysis_score !== null) ? Number(d.analysis_score) : null;
-      if (!isFinite(pers)) pers = null;
-      if (pers === null) pers = computePersentaseFromInput(d.input);
-
-      const persText = (pers !== null) ? `${pers.toFixed(1)}%` : "-";
-
-      const riskLabelEl = document.getElementById("riskLabel");
-      const riskScoreEl = document.getElementById("riskScore");
-      const tglEl = document.getElementById("detailTanggal");
-
-      if (riskLabelEl) {
-        riskLabelEl.textContent = label;
-        riskLabelEl.className = `font-extrabold ${riskColorClass(label)}`;
+      return [
+        "Jangan dipendam sendiri—segera cari bantuan dari orang dewasa/teman/keluarga yang kamu percaya.",
+        "Pertimbangkan untuk konsultasi profesional (psikolog/psikiater/konselor sekolah) secepatnya.",
+        "Kurangi pemicu stres sementara: istirahat, batasi overthinking, dan hindari membandingkan diri di media sosial.",
+        "Jaga kebutuhan dasar: makan teratur, tidur cukup, dan tetap minum air.",
+        "Jika muncul pikiran menyakiti diri atau merasa tidak aman, segera hubungi layanan darurat setempat / orang terdekat untuk menemani."
+      ];
+    }
+    function computePersentaseFromInput(input) {
+      if (!input) return null;
+      let total = 0;
+      for (let i = 1; i <= 9; i++) {
+        const v = Number(input[`q${i}`]);
+        if (!isFinite(v)) return null;
+        total += v;
       }
-      if (riskScoreEl) riskScoreEl.textContent = persText;
-
-      const when = d.created_at || d.createdAt || d.timestamp;
-      if (tglEl) {
-        tglEl.textContent = when
-          ? `Tanggal deteksi: ${new Date(when).toLocaleString("id-ID")}`
-          : "Tanggal deteksi: -";
+      return Math.round((total / 27) * 1000) / 10;
+    }
+    const d = JSON.parse(localStorage.getItem("riwayat_detail") || "null");
+    if (!d) window.location.href = "riwayat-deteksi.html";
+    const label = normalizeRiskLabel(d.predicted_class || d.label || d.risk);
+    let pers = (d.analysis_score !== undefined && d.analysis_score !== null) ? Number(d.analysis_score) : null;
+    if (!isFinite(pers)) pers = null;
+    if (pers === null) pers = computePersentaseFromInput(d.input);
+    const persText = (pers !== null) ? `${pers.toFixed(1)}%` : "-";
+    const riskLabelEl = document.getElementById("riskLabel");
+    const riskScoreEl = document.getElementById("riskScore");
+    const tglEl = document.getElementById("detailTanggal");
+    if (riskLabelEl) {
+      riskLabelEl.textContent = label;
+      riskLabelEl.className = `font-extrabold ${riskColorClass(label)}`;
+    }
+    if (riskScoreEl) riskScoreEl.textContent = persText;
+    const when = d.created_at || d.createdAt || d.timestamp;
+    if (tglEl) {
+      tglEl.textContent = when
+        ? `Tanggal deteksi: ${formatDateTime(when)}`
+        : "Tanggal deteksi: -";
+    }
+    function formatDateTime(iso) {
+      if (!iso) return "-";
+      const d = new Date(iso);
+      if (isNaN(d.getTime())) return "-";
+      return d.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      }) + " " + d.toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+    const list = document.getElementById("rekomList");
+    if (list) {
+      const items = rekomendasiByRisk(label);
+      list.innerHTML = items.map((x) => `<li class="leading-relaxed">${x}</li>`).join("");
+    }
+    const QUESTIONS = [
+      "Kurang minat atau kesenangan dalam melakukan sesuatu.",
+      "Merasa murung, sedih, atau putus asa.",
+      "Sulit tidur atau terlalu banyak tidur.",
+      "Merasa lelah atau kurang bertenaga.",
+      "Kurang nafsu makan atau makan berlebihan.",
+      "Merasa buruk tentang diri sendiri — merasa gagal atau mengecewakan diri/keluarga.",
+      "Sulit berkonsentrasi (misalnya saat membaca atau menonton TV).",
+      "Bergerak atau berbicara sangat lambat, atau sebaliknya gelisah/lebih banyak bergerak dari biasanya.",
+      "Terpikir lebih baik mati atau menyakiti diri sendiri."
+    ];
+    const ANSWER_LABELS = [
+      "Tidak Pernah",
+      "Beberapa Hari",
+      "Lebih dari Separuh Hari",
+      "Hampir Setiap Hari"
+    ];
+    function renderQA(input) {
+      const qaList = document.getElementById("qaList");
+      const qaSection = document.getElementById("qaSection");
+      if (!qaList || !qaSection) return;
+      if (!input) {
+        qaSection.style.display = "none";
+        return;
       }
-
-      const list = document.getElementById("rekomList");
-      if (list) {
-        const items = rekomendasiByRisk(label);
-        list.innerHTML = items.map((x) => `<li class="leading-relaxed">${x}</li>`).join("");
+      let hasAnswers = false;
+      let html = "";
+      for (let i = 1; i <= 9; i++) {
+        const val = input[`q${i}`];
+        if (val === undefined || val === null) continue;
+        hasAnswers = true;
+        const answerText = ANSWER_LABELS[val] || `Skor: ${val}`;
+        html += `
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200 hover:shadow-md transition">
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <span class="inline-block px-2 py-1 bg-[#9090F4]/10 text-[#9090F4] text-xs font-semibold rounded-lg mb-2">Pertanyaan ${i}</span>
+                  <p class="text-gray-800 font-medium">${QUESTIONS[i - 1]}</p>
+                </div>
+              </div>
+              <div class="mt-3 pt-3 border-t border-gray-100">
+                <p class="text-sm text-gray-500">Jawaban:</p>
+                <p class="font-semibold text-[#9090F4] mt-1">${answerText}</p>
+              </div>
+            </div>
+          `;
       }
-    </script>
-  </body>
+      if (!hasAnswers) {
+        qaSection.style.display = "none";
+        return;
+      }
+      qaList.innerHTML = html;
+    }
+    const inputData = d.input || (typeof d.input_json === "string" ? JSON.parse(d.input_json) : d.input_json) || null;
+    renderQA(inputData);
+    function confirmLogout() {
+      if (confirm("Apakah kamu yakin ingin logout?")) {
+        logout();
+      }
+    }
+  </script>
+</body>
 </html>
