@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +8,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
     body {
       font-family: "Inter", sans-serif;
     }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <div class="flex min-h-screen">
     <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
@@ -205,16 +208,17 @@
     }
     function formatDateTime(iso) {
       if (!iso) return "-";
-      const d = new Date(iso);
-      if (isNaN(d.getTime())) return "-";
-      return d.toLocaleDateString("id-ID", {
+      const dt = new Date(iso);
+      if (isNaN(dt.getTime())) return "-";
+      const wib = new Date(dt.getTime() + (7 * 60 * 60 * 1000));
+      return wib.toLocaleDateString("id-ID", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric"
-      }) + " " + d.toLocaleTimeString("id-ID", {
+      }) + " " + wib.toLocaleTimeString("id-ID", {
         hour: "2-digit",
         minute: "2-digit"
-      });
+      }) + " WIB";
     }
     const list = document.getElementById("rekomList");
     if (list) {
@@ -283,4 +287,5 @@
     }
   </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +8,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
     body {
       font-family: "Inter", sans-serif;
     }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <div class="flex min-h-screen">
     <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
@@ -120,14 +123,15 @@
       if (!iso) return "-";
       const d = new Date(iso);
       if (isNaN(d.getTime())) return "-";
-      return d.toLocaleDateString("id-ID", {
+      const wib = new Date(d.getTime() + (7 * 60 * 60 * 1000));
+      return wib.toLocaleDateString("id-ID", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric"
-      }) + " " + d.toLocaleTimeString("id-ID", {
+      }) + " " + wib.toLocaleTimeString("id-ID", {
         hour: "2-digit",
         minute: "2-digit"
-      });
+      }) + " WIB";
     }
     function mapLabelToBadge(label) {
       const v = String(label || "").toLowerCase();
@@ -182,8 +186,7 @@
         const dateStr = formatDateTime(r.created_at || r.createdAt || r.timestamp);
         const card = document.createElement("div");
         card.className =
-          "bg-white rounded-2xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition cursor-pointer";
-        card.addEventListener("click", () => openDetail(r));
+          "bg-white rounded-2xl shadow-sm p-6 border border-gray-200";
         card.innerHTML = `
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
               <div class="flex items-center space-x-4 md:col-span-2">
@@ -209,13 +212,13 @@
                 <p class="font-semibold text-gray-800">${safeText(dateStr)}</p>
               </div>
               <div class="flex md:justify-end">
-                <button type="button"
-                  class="w-full md:w-auto px-6 py-2 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition">
+                <button type="button" class="btn-detail w-full md:w-auto px-6 py-2 bg-[#9090F4] text-white rounded-lg font-semibold hover:bg-[#7a7ae0] transition">
                   Lihat Detail
                 </button>
               </div>
             </div>
           `;
+        card.querySelector(".btn-detail").addEventListener("click", () => openDetail(r));
         frag.appendChild(card);
       });
       container.appendChild(frag);
@@ -267,4 +270,5 @@
     }
   </script>
 </body>
+
 </html>

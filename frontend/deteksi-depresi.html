@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +8,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
     body {
       font-family: "Inter", sans-serif;
     }
   </style>
 </head>
+
 <body class="bg-gray-50">
   <div class="flex min-h-screen">
     <aside class="w-64 bg-white border-r border-gray-200 fixed h-full">
@@ -99,21 +102,23 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div>
               <label class="block text-sm text-gray-600 mb-1">Jenis Kelamin</label>
-              <select id="jenis_kelamin"
+              <select id="jenis_kelamin" required
                 class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Pilih jenis kelamin</option>
                 <option value="0">Perempuan</option>
                 <option value="1">Laki-laki</option>
               </select>
             </div>
             <div>
               <label class="block text-sm text-gray-600 mb-1">Umur</label>
-              <input id="umur" type="number" min="10" max="25" value="16"
+              <input id="umur" type="number" min="10" max="25" placeholder="Masukkan umur" required
                 class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
             <div>
               <label class="block text-sm text-gray-600 mb-1">Tingkatan Kelas</label>
-              <select id="tingkatan_kelas"
+              <select id="tingkatan_kelas" required
                 class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Pilih tingkatan kelas</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
@@ -121,7 +126,8 @@
             </div>
             <div>
               <label class="block text-sm text-gray-600 mb-1">Nilai Rata-rata</label>
-              <input id="nilai" type="number" step="0.01" value="80"
+              <input id="nilai" type="number" step="0.01" min="0" max="100" placeholder="Masukkan nilai rata-rata"
+                required
                 class="w-full px-4 py-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
           </div>
@@ -150,11 +156,31 @@
     if (mulaiBtn) {
       mulaiBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        const jk = document.getElementById("jenis_kelamin").value;
+        const umur = document.getElementById("umur").value;
+        const kelas = document.getElementById("tingkatan_kelas").value;
+        const nilai = document.getElementById("nilai").value;
+        if (!jk || jk === "") {
+          alert("Pilih jenis kelamin terlebih dahulu.");
+          return;
+        }
+        if (!umur || umur === "") {
+          alert("Masukkan umur terlebih dahulu.");
+          return;
+        }
+        if (!kelas || kelas === "") {
+          alert("Pilih tingkatan kelas terlebih dahulu.");
+          return;
+        }
+        if (!nilai || nilai === "") {
+          alert("Masukkan nilai rata-rata terlebih dahulu.");
+          return;
+        }
         const demografi = {
-          jenis_kelamin: parseInt(document.getElementById("jenis_kelamin").value),
-          umur: parseInt(document.getElementById("umur").value),
-          tingkatan_kelas: parseInt(document.getElementById("tingkatan_kelas").value),
-          nilai: parseFloat(document.getElementById("nilai").value),
+          jenis_kelamin: parseInt(jk),
+          umur: parseInt(umur),
+          tingkatan_kelas: parseInt(kelas),
+          nilai: parseFloat(nilai),
         };
         localStorage.setItem("sadar_demografi", JSON.stringify(demografi));
         localStorage.removeItem("sadar_answers");
@@ -168,4 +194,5 @@
     }
   </script>
 </body>
+
 </html>

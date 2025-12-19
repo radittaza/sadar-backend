@@ -114,34 +114,7 @@
               <h3 class="text-xl font-bold text-gray-800 mb-6">
                 Edukasi Kesehatan Mental
               </h3>
-              <a href="https://www.alodokter.com/depresi" target="_blank"
-                class="flex items-start space-x-4 mb-6 pb-6 border-b border-gray-100 hover:bg-gray-50 rounded-lg p-2 -m-2 transition">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span class="text-blue-600 text-xl font-bold">A</span>
-                </div>
-                <div>
-                  <h4 class="font-bold text-gray-800 mb-2">
-                    Artikel: Apa Itu Depresi?
-                  </h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">
-                    Belajar tentang mengetahui apa itu depresi dan cara mengenalinya dengan lebih baik.
-                  </p>
-                </div>
-              </a>
-              <a href="https://www.halodoc.com/kesehatan/depresi" target="_blank"
-                class="flex items-start space-x-4 hover:bg-gray-50 rounded-lg p-2 -m-2 transition">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span class="text-green-600 text-xl font-bold">H</span>
-                </div>
-                <div>
-                  <h4 class="font-bold text-gray-800 mb-2">
-                    Artikel: Gejala & Penanganan Depresi
-                  </h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">
-                    Belajar tentang gejala depresi dan cara penanganannya dengan lebih baik.
-                  </p>
-                </div>
-              </a>
+              <p class="text-gray-500 text-sm">Artikel akan segera tersedia.</p>
             </div>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-200">
@@ -348,14 +321,15 @@
       if (!iso) return "-";
       const d = new Date(iso);
       if (isNaN(d.getTime())) return "-";
-      return d.toLocaleDateString("id-ID", {
+      const wib = new Date(d.getTime() + (7 * 60 * 60 * 1000));
+      return wib.toLocaleDateString("id-ID", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric"
-      }) + " " + d.toLocaleTimeString("id-ID", {
+      }) + " " + wib.toLocaleTimeString("id-ID", {
         hour: "2-digit",
         minute: "2-digit"
-      });
+      }) + " WIB";
     }
     function confirmLogout() {
       if (confirm("Apakah kamu yakin ingin logout?")) {
