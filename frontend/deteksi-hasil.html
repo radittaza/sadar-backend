@@ -164,7 +164,8 @@
       return x || "-";
     }
     function riskColorClass(label) {
-      if (label === "Normal" || label === "Rendah") return "text-blue-600";
+      if (label === "Normal") return "text-blue-600";
+      if (label === "Rendah") return "text-green-600";
       if (label === "Sedang") return "text-yellow-600";
       if (label === "Tinggi") return "text-red-600";
       return "text-gray-800";
@@ -184,7 +185,7 @@
           "Atur pola tidur & bangun yang konsisten (hindari begadang).",
           "Kurangi beban berlebih: buat daftar prioritas harian, kerjakan yang paling penting dulu.",
           "Ceritakan kondisi kamu ke orang terpercaya (teman dekat/keluarga/guru BK).",
-          "Lakukan aktivitas fisik ringan 15–30 menit (jalan, stretching) untuk bantu mood.",
+          "Lakukan aktivitas fisik ringan 15-30 menit (jalan, stretching) untuk bantu mood.",
           "Pertimbangkan konsultasi profesional (konselor/psikolog) bila perasaan sedih/cemas berlangsung > 2 minggu."
         ];
       }
