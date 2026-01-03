@@ -171,30 +171,39 @@
       return "text-gray-800";
     }
     function rekomendasiByRisk(label) {
-      if (label === "Normal" || label === "Rendah") {
+      if (label === "Normal") {
         return [
-          "Pertahankan rutinitas sehat (tidur cukup, makan teratur, minum air yang cukup).",
-          "Lakukan aktivitas yang kamu suka secara konsisten (hobi, olahraga ringan, journaling).",
-          "Kelola stres dengan istirahat singkat dan teknik napas dalam saat mulai terasa tertekan.",
-          "Jaga koneksi sosial: ngobrol dengan teman/keluarga walau sebentar.",
-          "Jika gejala mulai mengganggu aktivitas harian, pertimbangkan konsultasi dengan konselor/guru BK."
+          "Biasakan tidur yang cukup, makan secara teratur, dan melakukan aktivitas fisik ringan seperti olahraga atau peregangan agar tubuh dan pikiran tetap seimbang.",
+          "Tingkatkan pemahaman mengenai kesehatan mental dan emosional agar lebih peka terhadap perubahan perasaan atau stres yang mungkin muncul.",
+          "Atur waktu belajar, istirahat, dan kegiatan pribadi secara seimbang supaya tidak merasa lelah atau tertekan dengan aktivitas sekolah.",
+          "Jaga hubungan sosial yang baik dengan teman, keluarga, dan lingkungan sekolah sebagai bentuk dukungan emosional yang positif.",
+          "Lakukan pemantauan kondisi diri secara berkala, dan apabila mulai merasakan keluhan emosional yang mengganggu, pertimbangkan untuk berdiskusi dengan guru BK atau orang dewasa yang dipercaya."
+        ];
+      }
+      if (label === "Rendah") {
+        return [
+          "Amati dan perhatikan perubahan perasaan atau gejala yang dirasakan selama beberapa minggu ke depan untuk melihat apakah kondisi membaik atau justru memburuk.",
+          "Atur rutinitas harian dengan lebih teratur, termasuk waktu belajar, istirahat, dan kegiatan pribadi agar tidak menimbulkan stres berlebihan.",
+          "Lakukan aktivitas yang menyenangkan dan menenangkan seperti olahraga ringan, menulis jurnal, mendengarkan musik, atau melakukan hobi yang disukai untuk membantu menjaga suasana hati.",
+          "Ceritakan perasaan atau beban yang dirasakan kepada orang yang dipercaya, seperti teman dekat, keluarga, atau guru BK, agar tidak dipendam sendiri.",
+          "Jika dalam waktu sekitar satu bulan gejala tidak menunjukkan perbaikan atau mulai mengganggu aktivitas sekolah dan keseharian, disarankan untuk berkonsultasi dengan guru BK atau tenaga konseling untuk mendapatkan dukungan lebih lanjut."
         ];
       }
       if (label === "Sedang") {
         return [
-          "Atur pola tidur & bangun yang konsisten (hindari begadang).",
-          "Kurangi beban berlebih: buat daftar prioritas harian, kerjakan yang paling penting dulu.",
-          "Ceritakan kondisi kamu ke orang terpercaya (teman dekat/keluarga/guru BK).",
-          "Lakukan aktivitas fisik ringan 15-30 menit (jalan, stretching) untuk bantu mood.",
-          "Pertimbangkan konsultasi profesional (konselor/psikolog) bila perasaan sedih/cemas berlangsung > 2 minggu."
+          "Atur pola tidur dan waktu bangun secara konsisten, serta hindari begadang agar tubuh dan pikiran mendapatkan waktu istirahat yang cukup.",
+          "Kurangi beban aktivitas yang berlebihan dengan menyusun prioritas harian dan mengerjakan tugas sekolah secara bertahap agar tidak merasa kewalahan.",
+          "Ceritakan kondisi yang dirasakan kepada orang dewasa yang dipercaya, seperti orang tua, wali, atau guru BK, agar mendapatkan dukungan dan arahan yang tepat.",
+          "Lakukan aktivitas fisik ringan secara rutin, seperti berjalan kaki atau peregangan selama 15–30 menit, untuk membantu memperbaiki suasana hati.",
+          "Disarankan untuk melakukan konsultasi dengan guru BK, konselor sekolah, atau psikolog, terutama jika perasaan sedih, cemas, atau kehilangan semangat berlangsung lebih dari dua minggu dan mulai mengganggu aktivitas belajar maupun kehidupan sehari-hari."
         ];
       }
       return [
-        "Jangan dipendam sendiri—segera cari bantuan dari orang dewasa/teman/keluarga yang kamu percaya.",
-        "Pertimbangkan konsultasi profesional (psikolog/psikiater/konselor sekolah) secepatnya.",
-        "Kurangi pemicu stres sementara: istirahat, batasi overthinking, dan hindari membandingkan diri di media sosial.",
-        "Jaga kebutuhan dasar: makan teratur, tidur cukup, dan tetap minum air.",
-        "Jika muncul pikiran menyakiti diri atau merasa tidak aman, segera hubungi layanan darurat setempat / orang terdekat untuk menemani."
+        "Segera sampaikan kondisi yang dirasakan kepada orang dewasa yang dipercaya, seperti orang tua, wali, atau guru BK, agar mendapatkan pendampingan dan bantuan yang tepat.",
+        "Disarankan untuk segera melakukan konsultasi dengan tenaga profesional, seperti psikolog, psikiater, atau konselor sekolah, untuk mendapatkan penanganan yang lebih intensif dan terarah.",
+        "Kurangi sementara aktivitas yang dapat memicu stres berlebihan dan berikan waktu bagi diri sendiri untuk beristirahat serta menenangkan pikiran.",
+        "Tetap jaga kebutuhan dasar seperti makan teratur, tidur yang cukup, dan minum air yang cukup sebagai langkah awal menjaga kondisi fisik dan mental.",
+        "Apabila muncul pikiran untuk menyakiti diri sendiri atau merasa tidak aman, segera cari bantuan darurat dengan menghubungi layanan kesehatan terdekat atau meminta pendampingan langsung dari orang dewasa yang berada di sekitar."
       ];
     }
     function computePersentaseFromInput(input) {
